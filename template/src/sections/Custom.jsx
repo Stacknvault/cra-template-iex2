@@ -7,9 +7,7 @@ function CustomSection({className, name, iex, ready, error, config}) {
     <div className={className}>
         {ready && 
           <div>
-            Hello stage {iex.context.contact.lastName}! You are at stage {iex.currentStage}
-              <div>This is the header</div>
-              <div>This is the header2</div>
+            Hello {iex.context.contact.firstName}! This is a custom section. You are at stage {iex.currentStage}
           </div>
         }
         {error && 
@@ -18,9 +16,6 @@ function CustomSection({className, name, iex, ready, error, config}) {
           </div>
           
         }
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
     </div>
   );
 }
