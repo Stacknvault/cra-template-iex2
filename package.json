@@ -1,6 +1,6 @@
 {
   "name": "@stacknvault/cra-template-iex2-app",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "dependencies": {
     "@stacknvault/iex2-core": "^1.1.5"
   },
