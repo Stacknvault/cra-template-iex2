@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from '@stacknvault/iex2-core/dist/index.jsx';
+import { Section } from '@stacknvault/iex2-core';
 
 
 function CustomSection({className, name, iex, ready, error, config}) {
