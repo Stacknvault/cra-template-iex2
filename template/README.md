@@ -47,9 +47,6 @@ import {GracefulHeroBanner, ProvisionContractAgreement, SimpleDataTable, ImageWa
 
 
 function App() {
-  // const { iex, ready, error } = useIEX();
-  // const {context, currentStage} = iex;
-
   
   return (
     <div className="App">
