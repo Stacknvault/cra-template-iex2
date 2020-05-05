@@ -121,7 +121,7 @@ or
 
 ## `yarn run expose -- publish help`
 
-Publishes a template.
+Publishes a template. Before publishing, make sure that the react app is built first (`yarn run build`).
 
 __USAGE__:
 `yarn run expose -- publish  [ --template-id=<your own template id> ]`
@@ -130,7 +130,7 @@ A custom template-id can be used.
 
 ## `yarn run expose -- render help`
 
-Renders a template for a given contact-id, entity-id and optional company-id.
+Renders a template for a given contact-id, entity-id and optional company-id. Before rendering, make sure that the template is published first.
 
 __USAGE__:
 `yarn run expose -- render [--render-id=<your own render id> ] --template-id=<template id> --contact-id=<contact id> --entity-id=<entity id> [ --company-id=<company id> ]`
