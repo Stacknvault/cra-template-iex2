@@ -26,11 +26,8 @@ An example:
         {"fieldName": "entity.addresses", "minStage": 2}
     ],
     "sections": {
-        "ProvisionContractAgreement": 0,
-        "Custom": 1,
-        "GracefulHeroBanner": 1,
-        "SimpleDataTable": 1,
-        "ImageWall": 1
+        "0": ["ProvisionContractAgreement"],
+        "1": ["Custom", "GracefulHeroBanner", "SimpleDataTable", "ImageWall"]
     }
 }
 ```
