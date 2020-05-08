@@ -35,23 +35,31 @@ An example:
 - The *entity.addresses* field isn't available on de model until stage 2
 - The *ProvisionContractAgreement* is the only *section* available on the stage 0, then the rest are available on the stage 1
 
-When sections are used, like on the example below,  the framework controls when to show them:
+When Stage objects are used, like on the example below, the framework controls when to show them:
 ```
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React from 'react';
+import './App.scss';
 import Custom from './sections/Custom';
-import {GracefulHeroBanner, ProvisionContractAgreement, SimpleDataTable, ImageWall} from '@stacknvault/iex2-core'
-
+import {Stage, GracefulHeroBanner, ProvisionContractAgreement, SimpleDataTable, ImageWall} from '@stacknvault/iex2-core';
 
 function App() {
-  
   return (
     <div className="App">
+        <Stage level="0">
           <ProvisionContractAgreement className="section"/>
+        </Stage>
+        <Stage level="1">
           <Custom className="section"/>
+        </Stage>
+        <Stage level="1">
           <GracefulHeroBanner className="dotted"/>
+        </Stage>
+        <Stage level="1"> 
           <SimpleDataTable className="dotted"/>
+        </Stage>
+        <Stage level="1">
           <ImageWall className="section"/>
+        </Stage>
     </div>
   );
 }
@@ -59,14 +67,14 @@ function App() {
 export default App;
 ```
 
-If a custom section is built, it should be wrapped into a *Section* object like this:
+If a custom section is built, it should use the context like this:
 
 ```
-import React from 'react';
-import { Section } from '@stacknvault/iex2-core';
+import React, {useContext} from 'react';
+import {ContextStore} from '@stacknvault/iex2-core'
 
-
-function CustomSection({className, name, iex, ready, error, config}) {
+const Custom = ({className}) =>{
+  const {iex, config, ready, error} = useContext(ContextStore);
   return (
     <div className={className}>
         {ready && 
@@ -84,16 +92,8 @@ function CustomSection({className, name, iex, ready, error, config}) {
   );
 }
 
-function Custom({className}){
-  return (
-    <Section name="Custom">
-      <CustomSection className={className}/>
-    </Section>
-  );
-}
 
 export default Custom;
-
 ```
 
 # The _expose_ script
