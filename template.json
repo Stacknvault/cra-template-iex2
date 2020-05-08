@@ -3,7 +3,7 @@
       "@testing-library/jest-dom": "^4.2.4",
       "@testing-library/react": "^9.3.2",
       "@testing-library/user-event": "^7.1.2",
-      "@stacknvault/iex2-core": "^1.1.14"
+      "@stacknvault/iex2-core": "^1.1.15"
     },
     "scripts": {
       "expose": "node node_modules/@stacknvault/iex2-core/scripts/expose.js"
