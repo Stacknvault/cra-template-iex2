@@ -25,7 +25,7 @@ An example:
     "excludes": [
         {"fieldName": "entity.addresses", "minStage": 2}
     ],
-    "sections": {
+    "stages": {
         "0": ["ProvisionContractAgreement"],
         "1": ["Custom", "GracefulHeroBanner", "SimpleDataTable", "ImageWall"]
     }
