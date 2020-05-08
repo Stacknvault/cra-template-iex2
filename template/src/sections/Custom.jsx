@@ -1,8 +1,8 @@
-import React from 'react';
-import { Section } from '@stacknvault/iex2-core';
+import React, {useContext} from 'react';
+import {ContextStore} from '@stacknvault/iex2-core'
 
-
-function CustomSection({className, name, iex, ready, error, config}) {
+const Custom = ({className}) =>{
+  const {iex, config, ready, error} = useContext(ContextStore);
   return (
     <div className={className}>
         {ready && 
@@ -20,12 +20,5 @@ function CustomSection({className, name, iex, ready, error, config}) {
   );
 }
 
-function Custom({className}){
-  return (
-    <Section name="Custom">
-      <CustomSection className={className}/>
-    </Section>
-  );
-}
 
 export default Custom;
