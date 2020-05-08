@@ -120,7 +120,7 @@ Publishes a template. Before publishing, make sure that the react app is built f
 __USAGE__:
 `yarn run expose -- publish  [ --template-id=<your own template id> ]`
 
-A custom template-id can be used.
+If no other args are specified, they will be taken from .lastRun
 
 ## `yarn run expose -- render help`
 
@@ -133,12 +133,16 @@ If company id is not specified, it will be taken from the sender
 
 A custom render-id can be used.
 
+If no other args are specified, they will be taken from .lastRun
+
 ## `yarn run expose -- set-stage help`
 
 Sets the stage of a rendered template
 
 __USAGE__:
 `yarn run expose -- set-stage --render-id=<render id> --stage=<stage number starting from 0>`
+
+If no other args are specified, they will be taken from .lastRun
 
 ## `yarn run expose -- get-context help`
 
@@ -148,3 +152,5 @@ __USAGE__:
 `yarn run expose -- get-context --contact-id=<contact id> --entity-id=<entity id> --stage=<stage number starting from 0> [ --company-id=<company id> ]`
 
 If company id is not specified, it will be taken from the sender
+
+If no other args are specified, they will be taken from .lastRun
