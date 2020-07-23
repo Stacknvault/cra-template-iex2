@@ -8,7 +8,7 @@ export default function FloorPlans({ theme, imgObjs }) {
     console.log("imgObjs : ",imgObjs);
     return (
         <>
-            {imgObjs.map((plan, idx) => {
+            { imgObjs && imgObjs.map && imgObjs.map((plan, idx) => {
                 return (
                     <Page key={plan.uri + plan.headline} theme={theme} withMargin={true} title={idx === 0 ? "Grundrisse" : undefined}>
                         <div className="plan">
