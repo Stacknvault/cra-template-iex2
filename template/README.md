@@ -118,7 +118,7 @@ or
 Publishes a template. Before publishing, make sure that the react app is built first (`yarn run build`).
 
 __USAGE__:
-`yarn run expose -- publish  [ --template-id=<your own template id> ]`
+`yarn run expose -- publish  [ --template-id=<your own template id> ] [ --name="<the name of the template>"]`
 
 If no other args are specified, they will be taken from .lastRun
 
