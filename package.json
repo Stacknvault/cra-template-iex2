@@ -1,7 +1,6 @@
 {
-  "name": "musterbiespiel-example",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@stacknvault/cra-template-iex2-app",
+  "version": "1.2.6",
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
