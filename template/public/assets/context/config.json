@@ -1,9 +1,0 @@
-{
-    "excludes": [
-        {"fieldName": "entity.addresses", "minStage": 2}
-    ],
-    "stages": {
-        "0": ["ProvisionContractAgreement"],
-        "1": ["Custom", "GracefulHeroBanner", "SimpleDataTable", "ImageWall"]
-    }
-}

@@ -1,0 +1,34 @@
+// @import "../../styles/brand.scss";
+
+.page {
+    .footerWrapper {
+        display: grid;
+    }
+    .footer {
+        // background-color: $color5;
+        // border-top: 3mm solid white;
+        // color: white;
+        font-family: "Roboto", sans-serif;
+        font-size: 9pt;
+        -webkit-print-color-adjust: exact;
+        padding-left: 10mm;
+
+        display: grid;
+        grid-template-columns: 1fr 30mm;
+
+        .name {
+            font-weight: 600;
+            font-size: 10pt;
+            margin-top: 2mm;
+            margin-bottom: 2mm;
+        }
+        .info {
+            .label {
+                display: inline-block;
+                width: 30mm;
+            }
+            .value {
+            }
+        }
+    }
+}

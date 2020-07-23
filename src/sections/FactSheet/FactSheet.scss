@@ -1,0 +1,26 @@
+@import "../../styles/brand.scss";
+.factSheet {
+    .dataTable {
+        .row {
+            display: grid;
+            grid-template-columns: 80mm 1fr;
+            font-family: "Roboto", sans-serif;
+            font-size: 12pt;
+
+            &:nth-child(even) {
+                // background-color :$color2;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .label {
+                text-transform: uppercase;
+                text-align: right;
+                padding: 1.5mm;
+            }
+
+            .value {
+                padding: 1.5mm;
+            }
+        }
+    }
+}

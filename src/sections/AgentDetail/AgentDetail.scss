@@ -1,0 +1,19 @@
+.agentDetail {
+    display: grid;
+    grid-template-areas: 
+        "lhs    rhs"
+        "span   span"
+    ;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    .lhs {
+        grid-area: lhs;
+        margin-right: 10mm;
+    }
+    .rhs {
+        grid-area: rhs;
+    }
+    .span {
+        grid-area: span;
+    }
+}

@@ -1,0 +1,499 @@
+{
+  "currentStage": 0,
+  "context": {
+    "contact": {
+      "firstName": "Andoni",
+      "lastName": "Arostegui Menchaca",
+      "salutationletter": "Sehr geehrte/r Frau/Herr Arostegui Menchaca,",
+      "salutation": "Mr",
+      "emails": [
+        "andoni.arostegi@gmail.com"
+      ],
+      "status": "active",
+      "identifier": "7",
+      "images": {
+        "online": false,
+        "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/7a/f6328578-dff3-4291-93d6-e21092e3217a/04/345ef67b-c376-42b6-9e55-7be24de08504.jpg",
+        "headline": "andonithumb",
+        "description": "",
+        "position": 0,
+        "identifier": null,
+        "fileName": "andonithumb.jpg"
+      },
+      "id": "f6328578-dff3-4291-93d6-e21092e3217a",
+      "_metadata": {
+        "id": "f6328578-dff3-4291-93d6-e21092e3217a",
+        "schema": "contacts",
+        "documentType": "9040c578-830e-48b3-9e3c-4d2ab0149b46",
+        "timestamp": 1595340609000,
+        "createdTimestamp": 1594800812000,
+        "lastModifier": "da6946b9-9e4f-4e69-9194-298dbb326375",
+        "currentAccessLevel": 7
+      },
+      "_refs": [
+        {
+          "id": "da6946b9-9e4f-4e69-9194-298dbb326375",
+          "uri": "users/users/da6946b9-9e4f-4e69-9194-298dbb326375",
+          "type": "user",
+          "relation": "creator"
+        },
+        {
+          "id": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+          "uri": "companies/companies/d837832a-61a8-4dd3-8de4-823a99b0cfee",
+          "type": "company",
+          "relation": "creator"
+        }
+      ],
+      "_acps": [
+        {
+          "groupId": "3febc943-e718-436c-b717-239bfff76b78",
+          "accessLevel": 7
+        }
+      ],
+      "documents": {
+        "values": []
+      },
+      "isBlocked": {
+        "values": [
+          false
+        ]
+      },
+      "_acls": [
+        {
+          "id": "3febc943-e718-436c-b717-239bfff76b78",
+          "uri": "groups/groups/3febc943-e718-436c-b717-239bfff76b78",
+          "read": true,
+          "search": true,
+          "write": true,
+          "delete": true,
+          "type": "groups"
+        }
+      ]
+    },
+    "entity": {
+      "id": "4658de53-8f34-4f78-b41e-d3b2724157e5",
+      "rooms": {
+        "values": [
+          3
+        ]
+      },
+      "textEnvironment": {
+        "values": [
+          "Hier befindet sich ein Windfang, ein großer Küchen- und Essbereich mit Kaminzimmer. Das große Wohnzimmer mit angrenzender überdachter Sonnenterrasse bildet den Mittelpunkt des Hauses. Die Küche ist mit einer hochwertigen, noch sehr neuen Einbauküche inkl. hochwertigen Einbaugeräten der Marke Miele ausgestattet. Ebenfalls befindet sich im unteren Bereich das Ankleidezimmer mit angrenzendem Schlafzimmer, ein Wannen- und Duschbad sowie ein separates Gäste-WC. \n\nDas Dachgeschoss hat eine Nutzfläche von ca. 100 m². Vier weitere Zimmer wurde in Wohnraumqualität ausgebaut und haben, auf Grund der Dachschrägen, einen besonderen Wohlfühlcharme. Ein weiteres Duschbad ist ebenfalls vorhanden."
+        ]
+      },
+      "commissionProspect": {
+        "values": [
+          "3%"
+        ]
+      },
+      "no_of_floors": {
+        "values": [
+          6
+        ]
+      },
+      "contact": {
+        "values": [
+          "edac069f-9ab9-4f8c-86bd-3766ab6974f1"
+        ]
+      },
+      "modified": {
+        "values": [
+          1533885887
+        ]
+      },
+      "numberbedrooms": {
+        "values": [
+          1
+        ]
+      },
+      "ceilingheight": {
+        "values": [
+          null
+        ]
+      },
+      "longitude": {
+        "values": [
+          13.5007791
+        ]
+      },
+      "identifier": {
+        "values": [
+          "6"
+        ]
+      },
+      "created": {
+        "values": [
+          1533818383
+        ]
+      },
+      "textEstate": {
+        "values": [
+          "Wohnen am Ostbahnhof. Leben Sie im Herzen von Berlin. In 10 Minuten mit der S-Bahn erreichen Sie sowohl den Alexanderplatz wie auch das Szeneviertel an der Warschauer Straße. Alle Apartments wurde im Jahr 2018 fertiggestellt und verfügen serienmäßig über eine Hochwertige Einbauküche. "
+        ]
+      },
+      "priority": {
+        "values": [
+          0
+        ]
+      },
+      "automatedSendingInteractiveExpose": {
+        "values": [
+          true
+        ]
+      },
+      "commissionLandlord": {
+        "values": [
+          "3%"
+        ]
+      },
+      "emsk": {
+        "values": [
+          "9ab30ebd-096c-492e-88e3-d4f779518e91"
+        ]
+      },
+      "buyer": {
+        "values": [
+          "b34a4273-9897-4249-a423-2ef8902f79f9"
+        ]
+      },
+      "attachDocumentsOnAutoIEX": {
+        "values": [
+          true
+        ]
+      },
+      "condition": {
+        "values": [
+          "07"
+        ]
+      },
+      "estatetype": {
+        "values": [
+          "01"
+        ]
+      },
+      "builtin_kitchen": {
+        "values": [
+          true
+        ]
+      },
+      "numgarages": {
+        "values": [
+          1
+        ]
+      },
+      "commissioninclvat": {
+        "values": [
+          false
+        ]
+      },
+      "groundplotImage": {
+        "values": [
+          {
+            "online": true,
+            "description": "",
+            "position": 0,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/d1/8a9e1e96-f5c6-4c26-b10c-d3e7954a19d1.jpg",
+            "headline": "6"
+          }
+        ]
+      },
+      "status": {
+        "values": [
+          "active"
+        ]
+      },
+      "country_zip_city": {
+        "values": [
+          "10317 Berlin"
+        ]
+      },
+      "energy_certificate_availability": {
+        "values": [
+          "K"
+        ]
+      },
+      "landlord": {
+        "values": [
+          null
+        ]
+      },
+      "latitude": {
+        "values": [
+          52.5093031
+        ]
+      },
+      "shutters": {
+        "values": [
+          true
+        ]
+      },
+      "commissionPartner": {
+        "values": [
+          ""
+        ]
+      },
+      "monument": {
+        "values": [
+          false
+        ]
+      },
+      "completiondate": {
+        "values": [
+          ""
+        ]
+      },
+      "street": {
+        "values": [
+          "Irenenstr. 15"
+        ]
+      },
+      "longImage": {
+        "values": [
+          {
+            "online": true,
+            "description": "",
+            "position": 0,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/8c/c410ad65-cf9e-4f93-98e9-097d95dd698c.jpg",
+            "headline": "2"
+          },
+          {
+            "online": true,
+            "description": "",
+            "position": 1,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/dd/a1d028de-6e5e-4cf3-84a4-c634452837dd.jpg",
+            "headline": "3"
+          },
+          {
+            "online": true,
+            "description": "",
+            "position": 2,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/eb/98427c25-6404-46ec-85e3-1da6ba5311eb.jpg",
+            "headline": "4"
+          },
+          {
+            "online": true,
+            "description": "",
+            "position": 3,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/dc/85062466-3423-4356-8890-7a0dcf92bfdc.jpg",
+            "headline": "5"
+          }
+        ]
+      },
+      "floor": {
+        "values": [
+          2
+        ]
+      },
+      "department": {
+        "values": [
+          "0"
+        ]
+      },
+      "headline": {
+        "values": [
+          "Musterdaten - Apartments in Berlin "
+        ]
+      },
+      "commissionColleague": {
+        "values": [
+          ""
+        ]
+      },
+      "tradeType": {
+        "values": [
+          "0"
+        ]
+      },
+      "commissionTipGiver": {
+        "values": [
+          ""
+        ]
+      },
+      "sendToLandlord": {
+        "values": [
+          false
+        ]
+      },
+      "livingarea": {
+        "values": [
+          95
+        ]
+      },
+      "commissionCompany": {
+        "values": [
+          ""
+        ]
+      },
+      "purchaseprice": {
+        "values": [
+          125000
+        ]
+      },
+      "mainImage": {
+        "values": [
+          {
+            "online": true,
+            "description": "",
+            "position": 0,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/2b/1d56c5ad-da37-46eb-985b-bfb4fcb7712b.jpg",
+            "headline": ""
+          }
+        ]
+      },
+      "internaldescription": {
+        "values": [
+          "Musterdaten - ETW Irenenstraße 12"
+        ]
+      },
+      "yearofconstruction": {
+        "values": [
+          2018
+        ]
+      },
+      "barrierfree": {
+        "values": [
+          true
+        ]
+      },
+      "_acps": [
+        {
+          "groupId": "3febc943-e718-436c-b717-239bfff76b78",
+          "accessLevel": 7
+        }
+      ],
+      "_acls": [
+        {
+          "id": "3febc943-e718-436c-b717-239bfff76b78",
+          "uri": "groups/groups/3febc943-e718-436c-b717-239bfff76b78",
+          "read": true,
+          "search": true,
+          "write": true,
+          "delete": true,
+          "type": "groups"
+        }
+      ],
+      "_metadata": {
+        "id": "4658de53-8f34-4f78-b41e-d3b2724157e5",
+        "schema": "flat_purchase",
+        "timestamp": "1591892092655",
+        "createdTimestamp": "1591892092421",
+        "lastModifier": "141deed5-f8a5-4a75-95c4-b7bcd697cb8b",
+        "documentType": "700f8385-0c62-4b76-81a9-952c161f3e2c"
+      },
+      "_refs": [
+        {
+          "id": "141deed5-f8a5-4a75-95c4-b7bcd697cb8b",
+          "uri": "users/users/141deed5-f8a5-4a75-95c4-b7bcd697cb8b",
+          "type": "user",
+          "relation": "creator"
+        },
+        {
+          "id": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+          "uri": "companies/companies/d837832a-61a8-4dd3-8de4-823a99b0cfee",
+          "type": "company",
+          "relation": "creator"
+        }
+      ]
+    },
+    "sender": {
+      "id": "ec114861-c57c-4174-8479-49fda3c7397f",
+      "cognitoId": "eu-central-1:17231980-cdab-4333-ac7d-a226a2ad85ca",
+      "creatorId": "da6946b9-9e4f-4e69-9194-298dbb326375",
+      "cognitoUsername": null,
+      "companyId": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+      "salutation": null,
+      "firstname": null,
+      "lastname": null,
+      "businessMailAddress": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "aliasMailAddress": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "loginRelatedMailAddress": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "loginName": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "timestamp": 1593101968076,
+      "position": null,
+      "phone": null,
+      "mobile": null,
+      "fax": null,
+      "image": null,
+      "active": true,
+      "invitationPending": false,
+      "roles": [
+        "USER",
+        "ACCOUNT_MANAGER",
+        "ADMIN"
+      ],
+      "type": "API",
+      "companyName": null,
+      "addresses": null,
+      "sso": null,
+      "onboardingTutorialsActive": true
+    },
+    "company": {
+      "id": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+      "companyName": "Stack & Vault",
+      "companyStreet": "Herri Bide 2a",
+      "companyPostcode": "48100",
+      "companyCity": "Tests for stitch",
+      "companyUrl": "",
+      "creatorId": "da6946b9-9e4f-4e69-9194-298dbb326375",
+      "timestamp": null,
+      "domain": "stacknvault.com",
+      "navisionId": null,
+      "verified": true,
+      "trial": true,
+      "companyPhoneInfo": "+34617494156",
+      "companyFax": null,
+      "companyMailInfo": "andoni.arostegui@stacknvault.com",
+      "companyHrb": null,
+      "companyHrbPlace": null,
+      "companyUstId": null,
+      "companyUrlFacebook": null,
+      "companyUrlTwitter": null,
+      "companyUrlGoogle": null,
+      "companyUrlLinkedin": null,
+      "companyUrlInstagram": null,
+      "companyUrlImprint": null,
+      "companyUrlPrivacy": null,
+      "companyResponsiblePersons": null,
+      "logo": {
+        "bucketName": "cloudios.production.image",
+        "identifier": "logo",
+        "prefix": "e/d837832a-61a8-4dd3-8de4-823a99b0cfee/logos/",
+        "name": "stacknvault.png",
+        "url": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/e/d837832a-61a8-4dd3-8de4-823a99b0cfee/logos/logo"
+      },
+      "terms": null,
+      "legislationTexts": [
+        {
+          "id": "e14790bc-fd20-4efa-862b-c3c426ae0dc5",
+          "technicalName": "revocation_terms",
+          "legislationTextName": "Widerrufsbelehrung",
+          "legislationTextContent": "",
+          "legislationCheckboxes": []
+        },
+        {
+          "id": "c000b464-f4c3-43fe-bc58-c20e740f1f5c",
+          "technicalName": "terms_of_use",
+          "legislationTextName": "Nutzungsbedingung",
+          "legislationTextContent": "",
+          "legislationCheckboxes": []
+        },
+        {
+          "id": "6fc46b91-f63a-490b-bd30-d11d7a7310e5",
+          "technicalName": "commission_hint",
+          "legislationTextName": "Provisionshinweis",
+          "legislationTextContent": "",
+          "legislationCheckboxes": []
+        }
+      ],
+      "purposeOfDataProcessing": null,
+      "ownerClass": "CUSTOMER",
+      "origin": null,
+      "tax": null,
+      "companyBank": null,
+      "companyIban": null,
+      "companyBic": null,
+      "entitlementInfo": null
+    }
+  }
+}
