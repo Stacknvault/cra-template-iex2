@@ -13,27 +13,20 @@
     "react-markdown": "^4.3.1",
     "react-mustache": "^0.1.5",
     "react-scripts": "^3.4.1"
+  },"keywords": [
+    "react",
+    "create-react-app",
+    "template"
+  ],
+  "main": "template.json",
+  "description": "The base template for an IEX project.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "expose": "node node_modules/@stacknvault/iex2-core/scripts/expose.js"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stacknvault/cra-template-iex2",
+    "directory": "."
   }
 }
