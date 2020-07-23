@@ -19,7 +19,14 @@ const Context = ({ children }) => {
     const jsonify = res => res.json();
     const reportError = error => { setError("" + error) };
     const fetchContext = () => {
-        fetch('assets/context/context.json', { headers: {} })
+        var contextURL = 'assets/context/context.json';
+        var cognitotoken = '';
+        if (window.document.location.hash){
+            const config = JSON.parse(decodeURI(window.document.location.hash.substring(1)))
+            contextURL=`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/template/context?contactId=${config.contactId}&entityId=${config.entityId}`;
+            cognitotoken = config.cognitotoken;
+        }
+        fetch(contextURL, { headers: {cognitotoken} })
             .then(jsonify)
             .then(result => {
                 setIEX(result);
