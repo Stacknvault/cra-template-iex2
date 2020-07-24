@@ -1,0 +1,64 @@
+// @import "../../styles/brand.scss";
+
+.frontCover {
+    display: grid;
+    grid-template-areas:
+        ".              .               "
+        ".              desc            "
+        "pic            pic             ";
+    grid-template-rows: 20mm 1fr 2fr;
+    grid-template-columns: 40% 1fr;
+
+    .desc {
+        grid-area: desc;
+        font-family: "Bebas Neue", sans-serif;
+        .title {
+            font-size: 29pt;
+            padding-right: 30mm;
+            text-transform: uppercase;
+        }
+        .data {
+            border-top: 1px solid #bbb;
+            padding-top: 2mm;
+            font-size: 12pt;
+            padding-right: 50mm;
+            font-family: "Roboto", sans-serif;
+        }
+    }
+    .pic {
+        grid-area: pic;
+        position: relative;
+        overflow: hidden;
+
+        .picHolder {
+            -webkit-print-color-adjust: exact;
+            background-size: cover;
+            transition: all 10s ease-in-out;
+            width: 100%;
+            height: 100%;
+
+            &:hover {
+                transform: scale(2);
+            }
+        }
+
+        .headline {
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            bottom: 0mm;
+            left: 0mm;
+            right: 0mm;
+            padding: 5mm;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            -webkit-print-color-adjust: exact;
+            text-transform: uppercase;
+
+            .description {
+                color: rgba(255, 255, 255, 0.6);
+                text-transform: none;
+            }
+        }
+    }
+}

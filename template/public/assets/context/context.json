@@ -3,66 +3,65 @@
   "context": {
     "contact": {
       "firstName": "Andoni",
-      "lastName": "Arostegui",
-      "salutationletter": "Mr Andoni Arostegui",
-      "salutation": "Herr",
+      "lastName": "Arostegui Menchaca",
+      "salutationletter": "Sehr geehrte/r Frau/Herr Arostegui Menchaca,",
+      "salutation": "Mr",
       "emails": [
-        "andoni.arostegui@stacknvault.com"
+        "andoni.arostegi@gmail.com"
       ],
       "status": "active",
-      "identifier": "5030",
-      "phones": [
-        {
-          "type": "private",
-          "number": ""
-        }
-      ],
-      "addresses": [
-        {
-          "city": "",
-          "street": "",
-          "type": "private",
-          "zipcode": ""
-        }
-      ],
-      "id": "c1698195-3515-4214-a46f-086d8b8110d2",
+      "identifier": "7",
+      "images": {
+        "online": false,
+        "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/7a/f6328578-dff3-4291-93d6-e21092e3217a/04/345ef67b-c376-42b6-9e55-7be24de08504.jpg",
+        "headline": "andonithumb",
+        "description": "",
+        "position": 0,
+        "identifier": null,
+        "fileName": "andonithumb.jpg"
+      },
+      "id": "f6328578-dff3-4291-93d6-e21092e3217a",
       "_metadata": {
-        "id": "c1698195-3515-4214-a46f-086d8b8110d2",
+        "id": "f6328578-dff3-4291-93d6-e21092e3217a",
         "schema": "contacts",
         "documentType": "9040c578-830e-48b3-9e3c-4d2ab0149b46",
-        "timestamp": 1586163194000,
-        "createdTimestamp": 1586163192000,
+        "timestamp": 1595340609000,
+        "createdTimestamp": 1594800812000,
+        "lastModifier": "da6946b9-9e4f-4e69-9194-298dbb326375",
         "currentAccessLevel": 7
       },
       "_refs": [
         {
-          "id": "1c6976df-a896-434c-a157-4ae304dc5042",
-          "uri": "users/users/1c6976df-a896-434c-a157-4ae304dc5042",
+          "id": "da6946b9-9e4f-4e69-9194-298dbb326375",
+          "uri": "users/users/da6946b9-9e4f-4e69-9194-298dbb326375",
           "type": "user",
           "relation": "creator"
         },
         {
-          "id": "75cad74e-dac9-4e1c-9544-97dffbc53f27",
-          "uri": "companies/companies/75cad74e-dac9-4e1c-9544-97dffbc53f27",
+          "id": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+          "uri": "companies/companies/d837832a-61a8-4dd3-8de4-823a99b0cfee",
           "type": "company",
           "relation": "creator"
         }
       ],
       "_acps": [
         {
-          "groupId": "329823d2-dcef-4fe3-adde-9cd329db8dcf",
+          "groupId": "3febc943-e718-436c-b717-239bfff76b78",
           "accessLevel": 7
         }
       ],
+      "documents": {
+        "values": []
+      },
       "isBlocked": {
         "values": [
-          true
+          false
         ]
       },
       "_acls": [
         {
-          "id": "329823d2-dcef-4fe3-adde-9cd329db8dcf",
-          "uri": "groups/groups/329823d2-dcef-4fe3-adde-9cd329db8dcf",
+          "id": "3febc943-e718-436c-b717-239bfff76b78",
+          "uri": "groups/groups/3febc943-e718-436c-b717-239bfff76b78",
           "read": true,
           "search": true,
           "write": true,
@@ -72,27 +71,10 @@
       ]
     },
     "entity": {
-      "id": "947ec018-e607-48d2-9726-ae21425328d0",
+      "id": "4658de53-8f34-4f78-b41e-d3b2724157e5",
       "rooms": {
         "values": [
-          2
-        ]
-      },
-      "addresses": {
-        "values": [
-          {
-            "zipcode": "10317",
-            "country": "Deutschland",
-            "city": "Berlin",
-            "street": "Margaretenstraße 32",
-            "district": null,
-            "state": null,
-            "type": "private",
-            "geolocation": {
-              "longitude": 13.4975918,
-              "latitude": 52.507925
-            }
-          }
+          3
         ]
       },
       "textEnvironment": {
@@ -102,92 +84,52 @@
       },
       "commissionProspect": {
         "values": [
-          ""
-        ]
-      },
-      "energyefficienceclass": {
-        "values": [
-          "02"
-        ]
-      },
-      "fuelenergy_type": {
-        "values": [
-          "FER"
-        ]
-      },
-      "elevator": {
-        "values": [
-          true
+          "3%"
         ]
       },
       "no_of_floors": {
         "values": [
-          2
+          6
         ]
       },
       "contact": {
         "values": [
-          "1a4f640e-2e1e-42e4-8da2-26193d190fd4"
-        ]
-      },
-      "numlivingbedrooms": {
-        "values": [
-          1
+          "edac069f-9ab9-4f8c-86bd-3766ab6974f1"
         ]
       },
       "modified": {
         "values": [
-          1535958770
+          1533885887
         ]
       },
       "numberbedrooms": {
         "values": [
-          2
-        ]
-      },
-      "let": {
-        "values": [
-          false
-        ]
-      },
-      "elevator_general": {
-        "values": [
-          "1"
+          1
         ]
       },
       "ceilingheight": {
         "values": [
-          3
+          null
         ]
       },
       "longitude": {
         "values": [
-          13.4975918
-        ]
-      },
-      "cellararea": {
-        "values": [
-          32
+          13.5007791
         ]
       },
       "identifier": {
         "values": [
-          "5029"
-        ]
-      },
-      "energidentificationdate": {
-        "values": [
-          1530396000
+          "6"
         ]
       },
       "created": {
         "values": [
-          1535958256
+          1533818383
         ]
       },
       "textEstate": {
         "values": [
-          "Wohnen am Ostbahnhof. Leben Sie im Herzen von Berlin. In 10 Minuten mit der S-Bahn erreichen Sie sowohl den Alexanderplatz wie auch das Szeneviertel an der Warschauer Straße. Alle Apartments wurde im Jahr 2018 fertiggestellt und verfügen serienmäßig über eine Hochwertige Einbauküche."
+          "Wohnen am Ostbahnhof. Leben Sie im Herzen von Berlin. In 10 Minuten mit der S-Bahn erreichen Sie sowohl den Alexanderplatz wie auch das Szeneviertel an der Warschauer Straße. Alle Apartments wurde im Jahr 2018 fertiggestellt und verfügen serienmäßig über eine Hochwertige Einbauküche. "
         ]
       },
       "priority": {
@@ -202,7 +144,7 @@
       },
       "commissionLandlord": {
         "values": [
-          ""
+          "3%"
         ]
       },
       "emsk": {
@@ -210,9 +152,19 @@
           "9ab30ebd-096c-492e-88e3-d4f779518e91"
         ]
       },
+      "buyer": {
+        "values": [
+          "b34a4273-9897-4249-a423-2ef8902f79f9"
+        ]
+      },
+      "attachDocumentsOnAutoIEX": {
+        "values": [
+          true
+        ]
+      },
       "condition": {
         "values": [
-          "01"
+          "07"
         ]
       },
       "estatetype": {
@@ -220,14 +172,9 @@
           "01"
         ]
       },
-      "kitchen_existing": {
-        "values": [
-          false
-        ]
-      },
       "builtin_kitchen": {
         "values": [
-          false
+          true
         ]
       },
       "numgarages": {
@@ -237,36 +184,17 @@
       },
       "commissioninclvat": {
         "values": [
-          true
-        ]
-      },
-      "shownInInteractiveExpose": {
-        "values": [
-          true
+          false
         ]
       },
       "groundplotImage": {
         "values": [
           {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/dc/b532a402-c8ee-442a-abb5-f91af1f292dc.jpg",
             "online": true,
-            "headline": "6",
+            "description": "",
             "position": 0,
-            "description": ""
-          },
-          {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/5b/be27083b-54af-409f-9247-cb690a45d85b.jpg",
-            "online": false,
-            "headline": "",
-            "position": 1,
-            "description": ""
-          },
-          {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/69/9cde022b-da32-461a-b5f0-f63f31388369.jpg",
-            "online": false,
-            "headline": "",
-            "position": 2,
-            "description": ""
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/d1/8a9e1e96-f5c6-4c26-b10c-d3e7954a19d1.jpg",
+            "headline": "6"
           }
         ]
       },
@@ -280,19 +208,19 @@
           "10317 Berlin"
         ]
       },
-      "energywithwarmwater": {
+      "energy_certificate_availability": {
         "values": [
-          true
+          "K"
         ]
       },
       "landlord": {
         "values": [
-          "b1df61d7-9c00-45ec-8066-5c8b3c1681c0"
+          null
         ]
       },
       "latitude": {
         "values": [
-          52.507925
+          52.5093031
         ]
       },
       "shutters": {
@@ -305,39 +233,56 @@
           ""
         ]
       },
+      "monument": {
+        "values": [
+          false
+        ]
+      },
       "completiondate": {
         "values": [
-          "Sofort"
+          ""
         ]
       },
       "street": {
         "values": [
-          "Margaretenstraße 32"
+          "Irenenstr. 15"
         ]
       },
       "longImage": {
         "values": [
           {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/8a/fa33c2f8-feab-4f53-accf-d80251be4b8a.jpg",
             "online": true,
-            "headline": "",
-            "position": 2,
-            "description": ""
-          },
-          {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/2e/b6e979a5-03d2-46bb-bede-0c3a5eac812e.jpg",
-            "online": true,
-            "headline": "",
+            "description": "",
             "position": 0,
-            "description": ""
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/8c/c410ad65-cf9e-4f93-98e9-097d95dd698c.jpg",
+            "headline": "2"
           },
           {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/bf/48b6d5e9-9451-4e0f-b1e4-4ee74ceadfbf.jpg",
             "online": true,
-            "headline": "",
+            "description": "",
             "position": 1,
-            "description": ""
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/dd/a1d028de-6e5e-4cf3-84a4-c634452837dd.jpg",
+            "headline": "3"
+          },
+          {
+            "online": true,
+            "description": "",
+            "position": 2,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/eb/98427c25-6404-46ec-85e3-1da6ba5311eb.jpg",
+            "headline": "4"
+          },
+          {
+            "online": true,
+            "description": "",
+            "position": 3,
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/dc/85062466-3423-4356-8890-7a0dcf92bfdc.jpg",
+            "headline": "5"
           }
+        ]
+      },
+      "floor": {
+        "values": [
+          2
         ]
       },
       "department": {
@@ -345,14 +290,9 @@
           "0"
         ]
       },
-      "pass_valid_till": {
-        "values": [
-          1846015200
-        ]
-      },
       "headline": {
         "values": [
-          "Musterdaten - Etagenwohung direkt im Herzen von Lichtenberg"
+          "Musterdaten - Apartments in Berlin "
         ]
       },
       "commissionColleague": {
@@ -377,12 +317,7 @@
       },
       "livingarea": {
         "values": [
-          162
-        ]
-      },
-      "xtnsn_objecttrackingaccessid_objecttrackingaccessid": {
-        "values": [
-          "b2b2"
+          95
         ]
       },
       "commissionCompany": {
@@ -392,38 +327,23 @@
       },
       "purchaseprice": {
         "values": [
-          171000
-        ]
-      },
-      "energyusagevalue": {
-        "values": [
-          35
-        ]
-      },
-      "typeofheating": {
-        "values": [
-          "FER"
+          125000
         ]
       },
       "mainImage": {
         "values": [
           {
-            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/27/75cad74e-dac9-4e1c-9544-97dffbc53f27/d0/947ec018-e607-48d2-9726-ae21425328d0/8d/9114d994-3483-4f40-8202-dde9b86b198d.jpg",
             "online": true,
-            "headline": "",
+            "description": "",
             "position": 0,
-            "description": ""
+            "uri": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/ee/d837832a-61a8-4dd3-8de4-823a99b0cfee/e5/4658de53-8f34-4f78-b41e-d3b2724157e5/2b/1d56c5ad-da37-46eb-985b-bfb4fcb7712b.jpg",
+            "headline": ""
           }
-        ]
-      },
-      "energyidentificationtype": {
-        "values": [
-          "2"
         ]
       },
       "internaldescription": {
         "values": [
-          "Musterdaten - ETW Margaretenstraße 32"
+          "Musterdaten - ETW Irenenstraße 12"
         ]
       },
       "yearofconstruction": {
@@ -436,21 +356,16 @@
           true
         ]
       },
-      "wheelchairaccess": {
-        "values": [
-          true
-        ]
-      },
       "_acps": [
         {
-          "groupId": "329823d2-dcef-4fe3-adde-9cd329db8dcf",
+          "groupId": "3febc943-e718-436c-b717-239bfff76b78",
           "accessLevel": 7
         }
       ],
       "_acls": [
         {
-          "id": "329823d2-dcef-4fe3-adde-9cd329db8dcf",
-          "uri": "groups/groups/329823d2-dcef-4fe3-adde-9cd329db8dcf",
+          "id": "3febc943-e718-436c-b717-239bfff76b78",
+          "uri": "groups/groups/3febc943-e718-436c-b717-239bfff76b78",
           "read": true,
           "search": true,
           "write": true,
@@ -459,41 +374,42 @@
         }
       ],
       "_metadata": {
-        "id": "947ec018-e607-48d2-9726-ae21425328d0",
+        "id": "4658de53-8f34-4f78-b41e-d3b2724157e5",
         "schema": "flat_purchase",
-        "timestamp": "1578671763470",
-        "createdTimestamp": "1560331691338",
+        "timestamp": "1591892092655",
+        "createdTimestamp": "1591892092421",
+        "lastModifier": "141deed5-f8a5-4a75-95c4-b7bcd697cb8b",
         "documentType": "700f8385-0c62-4b76-81a9-952c161f3e2c"
       },
       "_refs": [
         {
-          "id": "5ecbd364-1059-4739-ba8b-da79eaf0feeb",
-          "uri": "users/users/5ecbd364-1059-4739-ba8b-da79eaf0feeb",
+          "id": "141deed5-f8a5-4a75-95c4-b7bcd697cb8b",
+          "uri": "users/users/141deed5-f8a5-4a75-95c4-b7bcd697cb8b",
           "type": "user",
           "relation": "creator"
         },
         {
-          "id": "75cad74e-dac9-4e1c-9544-97dffbc53f27",
-          "uri": "companies/companies/75cad74e-dac9-4e1c-9544-97dffbc53f27",
+          "id": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+          "uri": "companies/companies/d837832a-61a8-4dd3-8de4-823a99b0cfee",
           "type": "company",
           "relation": "creator"
         }
       ]
     },
     "sender": {
-      "id": "47969756-7d42-49c7-a6f5-cb097d65b0c2",
-      "cognitoId": "eu-central-1:b4525afb-8ce3-4b56-a353-e223b93985f6",
-      "creatorId": "5ecbd364-1059-4739-ba8b-da79eaf0feeb",
+      "id": "ec114861-c57c-4174-8479-49fda3c7397f",
+      "cognitoId": "eu-central-1:17231980-cdab-4333-ac7d-a226a2ad85ca",
+      "creatorId": "da6946b9-9e4f-4e69-9194-298dbb326375",
       "cognitoUsername": null,
-      "companyId": "75cad74e-dac9-4e1c-9544-97dffbc53f27",
+      "companyId": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
       "salutation": null,
       "firstname": null,
-      "lastname": "IEX2",
-      "businessMailAddress": "api-user-1715fa3b025@75cad74e-dac9-4e1c-9544-97dffbc53f27.de",
-      "aliasMailAddress": "api-user-1715fa3b025@75cad74e-dac9-4e1c-9544-97dffbc53f27.de",
-      "loginRelatedMailAddress": "api-user-1715fa3b025@75cad74e-dac9-4e1c-9544-97dffbc53f27.de",
-      "loginName": "api-user-1715fa3b025@75cad74e-dac9-4e1c-9544-97dffbc53f27.de",
-      "timestamp": 1586447508649,
+      "lastname": null,
+      "businessMailAddress": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "aliasMailAddress": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "loginRelatedMailAddress": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "loginName": "api-user-172ec46dfdb@d837832a-61a8-4dd3-8de4-823a99b0cfee.de",
+      "timestamp": 1593101968076,
       "position": null,
       "phone": null,
       "mobile": null,
@@ -513,99 +429,70 @@
       "onboardingTutorialsActive": true
     },
     "company": {
-      "id": "75cad74e-dac9-4e1c-9544-97dffbc53f27",
-      "companyName": "Immo Erfolg GmbH",
-      "companyStreet": "Holweider Straße 2a",
-      "companyPostcode": "51065",
-      "companyCity": "Köln",
-      "companyUrl": "https://www.stacknvault.com/",
-      "creatorId": "5ecbd364-1059-4739-ba8b-da79eaf0feeb",
+      "id": "d837832a-61a8-4dd3-8de4-823a99b0cfee",
+      "companyName": "Stack & Vault",
+      "companyStreet": "Herri Bide 2a",
+      "companyPostcode": "48100",
+      "companyCity": "Tests for stitch",
+      "companyUrl": "",
+      "creatorId": "da6946b9-9e4f-4e69-9194-298dbb326375",
       "timestamp": null,
-      "domain": "yahoo.de",
+      "domain": "stacknvault.com",
       "navisionId": null,
-      "verified": false,
-      "trial": false,
-      "companyPhoneInfo": "022199590-265",
-      "companyFax": "022199590-111",
+      "verified": true,
+      "trial": true,
+      "companyPhoneInfo": "+34617494156",
+      "companyFax": null,
       "companyMailInfo": "andoni.arostegui@stacknvault.com",
       "companyHrb": null,
       "companyHrbPlace": null,
       "companyUstId": null,
-      "companyUrlFacebook": "http://www.google.de",
-      "companyUrlTwitter": "https://twitter.com/polizeiberlin?lang=de",
-      "companyUrlGoogle": "https://de-de.facebook.com/Hauptstadtportal/",
-      "companyUrlLinkedin": "https://de-de.facebook.com/Hauptstadtportal/",
+      "companyUrlFacebook": null,
+      "companyUrlTwitter": null,
+      "companyUrlGoogle": null,
+      "companyUrlLinkedin": null,
       "companyUrlInstagram": null,
-      "companyUrlImprint": "https://www.stacknvault.com/impressum/",
-      "companyUrlPrivacy": "https://www.stacknvault.com/datenschutz/",
+      "companyUrlImprint": null,
+      "companyUrlPrivacy": null,
       "companyResponsiblePersons": null,
-      "logo": null,
+      "logo": {
+        "bucketName": "cloudios.production.image",
+        "identifier": "logo",
+        "prefix": "e/d837832a-61a8-4dd3-8de4-823a99b0cfee/logos/",
+        "name": "stacknvault.png",
+        "url": "https://s3.eu-central-1.amazonaws.com/cloudios.production.image/e/d837832a-61a8-4dd3-8de4-823a99b0cfee/logos/logo"
+      },
       "terms": null,
       "legislationTexts": [
         {
-          "id": "f86826a0-5d13-45a4-8744-c6cb80835466",
+          "id": "e14790bc-fd20-4efa-862b-c3c426ae0dc5",
           "technicalName": "revocation_terms",
           "legislationTextName": "Widerrufsbelehrung",
-          "legislationTextContent": "<h1>Widerrufsbelehrung</h1><h2>Widerrufsrecht</h2><p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.</p><p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns ({{company.companyName}}, {{company.companyStreet}}, {{company.companyPostcode}} {{company.companyCity}}, Telefon: {{company.companyPhoneInfo}}, Fax: {{company.companyFax}}, {{company.companyMailInfo}}) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief, Telefax oder E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte <a href='https://download.flowfact.me/Muster-widerrufsformular.pdf' target='_blank' rel='noopener'>Muster-Widerrufsformular</a> verwenden, das jedoch nicht vorgeschrieben ist.</p><p>Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p><h2>Folgen des Widerrufs</h2><p>Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass  Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p><p>Haben Sie verlangt, dass die Dienstleistung während der Widerrufsfrist beginnen soll, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrages unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.</p><h2>Hinweis zum vorzeitigen Erlöschen des Widerrufsrechts</h2><p>Ihr Widerrufsrecht erlischt bei einem Vertrag zur Erbringung von Dienstleistungen vorzeitig, wenn wir die Dienstleistung vollständig erbracht haben und mit der Ausführung der Dienstleistung erst begonnen haben, nachdem Sie dazu Ihre ausdrückliche Zustimmung gegeben haben und gleichzeitig Ihre Kenntnis davon bestätigt haben, dass Sie Ihr Widerrufsrecht bei vollständiger Vertragserfüllung durch uns verlieren.</p>",
-          "legislationCheckboxes": [
-            {
-              "value": "cancellation",
-              "label": "Ich habe die <a href='{{cancellationUrl}}' target='_blank' rel='noopener'>Widerrufsbelehrung</a> gelesen, verstanden und bin damit einverstanden.",
-              "required": true,
-              "defaultChecked": false
-            },
-            {
-              "value": "start_before_cancellation",
-              "label": "Ich verlange und bin ausdrücklich damit einverstanden, dass Sie bereits vor dem Ende der Widerrufsfrist mit der Ausführung der Dienstleistung, die Gegenstand des zu schließenden Vertrags ist, beginnen. Ferner ist mir bekannt, dass ich bereits mit vollständiger Vertragserfüllung durch Sie das mir gesetzlich zustehende Widerrufsrecht verliere.",
-              "required": true,
-              "defaultChecked": false
-            }
-          ]
+          "legislationTextContent": "",
+          "legislationCheckboxes": []
         },
         {
-          "id": "0c229255-1ba2-4cca-a7b5-28157a70d00b",
-          "technicalName": "commission_hint",
-          "legislationTextName": "Provisionshinweis",
-          "legislationTextContent": "Diese Immobilie ist provisionspflichtig. Sie wird vom Käufer getragen und ist verdient und zahlbar an den Nachweis-/Vermittlungsmakler bei Kaufvertragsabschluss. Eine Provision wird nur fällig, wenn es zu einem Nachweis oder einer Vermittlung einer Gelegenheit zum Abschluss eines Hauptvertrages kommt.",
-          "legislationCheckboxes": [
-            {
-              "value": "commission_note",
-              "label": "Ich habe den Provisionshinweis gelesen, verstanden und akzeptiere diesen.",
-              "required": true,
-              "defaultChecked": false
-            }
-          ]
-        },
-        {
-          "id": "7197f2fb-abe8-4a8a-9b91-d0705126e87b",
+          "id": "c000b464-f4c3-43fe-bc58-c20e740f1f5c",
           "technicalName": "terms_of_use",
           "legislationTextName": "Nutzungsbedingung",
-          "legislationTextContent": "<h1>Nutzungsbedingung des Interaktiven Exposés</h1><h2>Rechtliches</h2><h3>Richtigkeit und Vollständigkeit der Angaben</h3><p>Der Makler weist darauf hin, dass die von ihm weitergegebenen Objektinformationen vom Verkäufer bzw. von einem vom Verkäufer beauftragten Dritten stammen und von ihm, dem Makler, auf ihre Richtigkeit nicht überprüft worden sind. Es ist Sache des Kunden, diese Angaben auf ihre Richtigkeit hin zu überprüfen. Der Makler, der diese Informationen nur weitergibt, übernimmt für die Richtigkeit keinerlei Haftung.</p><h3>Weitergabeverbot</h3> <p>Sämtliche Informationen einschließlich der Objektnachweise des Maklers sind ausdrücklich für den Kunden bestimmt. Diesem ist es ausdrücklich untersagt, die Objektnachweise und Objektinformationen ohne ausdrückliche Zustimmung des Maklers, die zuvor schriftlich erteilt werden muss, an Dritte weiter zu geben. Verstößt ein Kunde gegen diese Verpflichtung und schließt der Dritte oder andere Personen, an die der Dritte seinerseits die Informationen weitergegeben hat, den Hauptvertrag ab, so ist der Kunde verpflichtet, dem Makler die mit ihm vereinbarte Provision zuzüglich Mehrwertsteuer zu entrichten.</p><h3>Erreichbarkeit und Erweiterung des Service</h3><p>Wir übernehmen keine Haftung für die Verfügbarkeit des Interaktiven Exposés. Jedoch ergreifen wir technische Maßnahmen etwaige Ausfälle auf ein Mindestmaß zu reduzieren. Dennoch empfehlen wir Ihnen sich das Interaktive Exposé auszudrucken und gesondert vorzuhalten.</p><p>Wir behalten uns zudem vor jederzeit Änderungen am Service zu vollführen, wodurch neue Funktionen hinzugefügt, bestehende Funktionen geändert oder auch entfernt werden können. Wir bitten Sie daher die Nutzungsbedingungen bei jedem neuen Angebot ausführlich zu lesen und erneut zu bestätigen. </p><h3>Salvatorische Klausel</h3> <p>Sollte eine oder mehrere der vorstehenden Bestimmungen ungültig sein, so soll die Wirksamkeit der übrigen Bestimmungen hiervon nicht berührt werden. Dies gilt auch, wenn innerhalb einer Regelung ein Teil unwirksam ist, ein anderer Teil aber wirksam. Die jeweils unwirksame Bestimmung soll zwischen den Parteien durch eine Regelung ersetzt werden, die den wirtschaftlichen Interessen der Vertragsparteien am nächsten kommt und im Übrigen den vertraglichen Vereinbarungen nicht zuwiderläuft.</p><br/><br/><h2>Datenschutz</h2><p>Das Interaktive Exposé erfasst, sichert und verarbeitet im Rahmen seiner Nutzung personenbezogene Daten. Wie Ihre personenbezogenen Daten in unserem Unternehmen verarbeitet bzw. diese geschützt werden, entnehmen Sie bitte unserer <a target='_blank' href='{{company.companyUrlPrivacy}}'> Datenschutzerklärung</a>. Sofern nicht anderweitiges geregelt wurde, gelten folgende Regelungen zum Datenschutz.</p><h3>Wofür werden Ihrer personenbezogenen Daten benötigt</h3> <p>Sämtliche über das Interaktive Exposé erfasste personenbezogene Daten werden zur Nachweissicherung nach BGB § 652 und zur Provisionssicherung verwendet. </p>Des Weitern analysieren wir Ihr Leseverhalten, sowie Ihr Feedback zum Interaktiven Exposé, um den Versand weiterer Angebote besser auf Ihre Bedürfnisse und Vorlieben ausrichten zu können. Somit soll sichergestellt werden, dass sämtliche angebotene Immobilien auch für Sie von Interesse sind.</p> <h3>Auskunft zu Ihren personenbezogenen Daten</h3> <p>Gerne geben wir Ihnen Auskunft, welche personenbezogenen Daten zu Ihrer Person in unserem Hause hinterlegt sind. Bitte wenden Sie sich hierfür per E-Mail an {{company.companyMailInfo}} oder schriftlich an ({{company.companyName}}, {{company.companyStreet}}, {{company.companyPostcode}} {{company.companyCity}}) und verweisen Sie im Betreff des jeweiligen Schreibens, dass Sie eine Auskunft wünschen. Die Erstellung kann bis zu vier Wochen in Anspruch nehmen. Wir bitten hierfür um Verständnis.</p><h3>Aktualisierung Ihrer personenbezogenen Daten</h3> <p>Sollten Sie Ihr Interaktives Exposé an eine veraltete E-Mailadresse erhalten haben oder gar eine Änderung bestehender Kontaktdaten wünschen, so bitten wir Sie uns die Änderung via E-Mail an {{company.companyMailInfo}} oder schriftlich an ({{company.companyName}}, {{company.companyStreet}}, {{company.companyPostcode}} {{company.companyCity}}) zu senden.</p><h3>Löschung Ihrer personenbezogenen Daten</h3> <p>Sämtliche personenbezogene Daten werden von uns für min. 24 Monate vorgehalten und im Rahmen der Nachweisprüfung sowie der Angebotsversendung verarbeitet.</p>Sollten Sie eine Löschung Ihrer Daten vor Ablauf der genannten Frist wünschen, so bitten wir Sie dies per E-Mail an {{company.companyMailInfo}} oder schriftlich an ({{company.companyName}}, {{company.companyStreet}}, {{company.companyPostcode}} {{company.companyCity}}) zu senden. Wie bitten Sie hierbei um Verständnis, dass jede Löschung vorab durch unser Unternehmen geprüft werden muss. Dies kann bis zu vier Wochen in Anspruch nehmen. Sollten Sie nur die einzelnen Angaben wie z.B. eine Rufnummer oder alte Anschrift löschen wollen, so geben Sie dies einfach im Betreff der E-Mail oder des Anschreibens an.</p><h3>Kontaktaufnahme über das Interaktive Exposé</h3> <p>Mit Nutzung des im Interaktiven Exposé hinterlegten Kontaktformulars, stimmen Sie zu, dass Ihre Angaben und Daten zur Beantwortung Ihrer Anfrage elektronisch erhoben und gespeichert werden. Die Übermittlung der Daten erfolgt ausschließlich verschlüsselt.</p><h3>Messung des Nutzerverhaltens</h3> <p>Das Interaktive Exposé erfasst automatisiert bei jeder Verwendung das Leseverhalten, die Aufrufe und die Interaktion in bereitgestellten Exposés. Die erfassten Daten werden zur Optimierung und Verbesserung des Nutzerverhaltens genutzt. Dies zielt auf die Steigerung der Benutzerfreundlichkeit, Optimierung der Website sowie die Unterbreitung von passenden Immobilienangeboten im Rahmen des Suchverhaltens des Besuchers ab. Es werden folgende Informationen erhoben: Anzahl der Exposé Aufrufe, IP-Adresse des Besuchers, Anzahl Seitenaufrufe im Zeitverlauf, Bewegungen und Verweildauer sowie Art der ausgeführten Aktionen. </p><p>Des Weiteren arbeitet das Interaktive Exposé mit sogenannten „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und eine Analyse der Benutzung des Exposés durch diese ermöglicht. Die durch das Cookie erzeugten Informationen werden auf Servern der FLOWFACT GmbH innerhalb der europäischen Union erfasst und für mindestens zwei Monate vorgehalten.</p><p>Weitere Informationen zum Datenschutz finden Sie unter dem Punkt 'Datenschutz'.</p>",
-          "legislationCheckboxes": [
-            {
-              "value": "terms_of_use",
-              "label": "Ich habe die Nutzungsbedingung gelesen, verstanden und bin damit einverstanden.",
-              "required": true,
-              "defaultChecked": false
-            },
-            {
-              "value": "tracking_status",
-              "label": "Ich möchte an der Verbesserung des Interaktiven Exposés teilnehmen und stimme der Erhebung und Sicherung meines Nutzungsverhaltens zu.",
-              "required": false,
-              "defaultChecked": false
-            },
-            {
-              "value": "test_von_guel",
-              "label": "Ein weiteres Pflichtfeld möchte von Gül getestet werden.",
-              "required": false,
-              "defaultChecked": false
-            }
-          ]
+          "legislationTextContent": "",
+          "legislationCheckboxes": []
+        },
+        {
+          "id": "6fc46b91-f63a-490b-bd30-d11d7a7310e5",
+          "technicalName": "commission_hint",
+          "legislationTextName": "Provisionshinweis",
+          "legislationTextContent": "",
+          "legislationCheckboxes": []
         }
       ],
-      "purposeOfDataProcessing": "Erlaubnis zum Telefonischen Kontakt",
-      "ownerClass": "INTERNAL",
+      "purposeOfDataProcessing": null,
+      "ownerClass": "CUSTOMER",
       "origin": null,
+      "tax": null,
+      "companyBank": null,
+      "companyIban": null,
+      "companyBic": null,
       "entitlementInfo": null
     }
   }

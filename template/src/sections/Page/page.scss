@@ -1,0 +1,32 @@
+.page {
+    display: grid;
+    grid-template-rows: 40mm 1fr 25mm;
+    grid-template-columns: 40% 1fr;
+    grid-template-areas:
+        ".          header"
+        "content    content"
+        "footer     footer"
+    ;
+
+    .header {
+        grid-area: header;
+        // background-color: red;
+        overflow: hidden;
+        z-index: 100;
+    }
+    .content {
+        grid-area: content;
+        overflow: hidden;
+
+        .withMargin {
+            margin-left: 20mm;
+            margin-right: 20mm;
+            margin-top: 10mm;
+        }
+
+    }
+    .footerWrapper {
+        grid-area: footer;
+        z-index: 100;
+    }
+}
