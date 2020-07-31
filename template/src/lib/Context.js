@@ -23,7 +23,7 @@ const Context = ({ children }) => {
         var cognitotoken = '';
         if (window.document.location.hash){
             const config = JSON.parse(decodeURI(window.document.location.hash.substring(1)))
-            contextURL=`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/template/context?contactId=${config.contactId}&entityId=${config.entityId}&stage=${config.stage}`;
+            contextURL=config.contextURL
             cognitotoken = config.cognitotoken;
         }
         fetch(contextURL, { headers: {cognitotoken} })
