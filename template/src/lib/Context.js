@@ -9,11 +9,20 @@ const Context = ({ children }) => {
     const [error, setError] = useState(null);
     const [config, setConfig] = useState(false);
 
-    // hacky hack hack
-    function _setStageHack(val) {
-        const newIex = {...iex}
-        newIex.currentStage++;
-        setIEX(newIex);
+    function upgradeStage(toStage) {
+        const exposeId = document.location.href.match('\/render\/([^\/]*)')[1]; // maybe better it came from the context
+        console.log('The expose id is ', exposeId);
+        fetch(`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/public/expose/${exposeId}/track`, 
+            { 
+                headers: {'content-type': 'application/json'}, 
+                body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: '<p>30.Juli 12:19 Uhr: Es wurden mehr Informationen angefordert</p>', stage: toStage}),
+                method: 'post'
+            })
+            .then(jsonify)
+            .then(result => {
+                console.log('Fetching context again');
+                fetchContext();
+            }, reportError);
     }
 
     const jsonify = res => res.json();
@@ -45,7 +54,7 @@ const Context = ({ children }) => {
     if (!ready) {
         return <></>
     }
-    return <ContextStore.Provider value={{ iex, config, ready, error, _setStageHack }}>{children}</ContextStore.Provider>
+    return <ContextStore.Provider value={{ iex, config, ready, error, upgradeStage, currentStage }}>{children}</ContextStore.Provider>
 }
 
 const Stage = ({ level, children }) => {

@@ -22,8 +22,7 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
 
     console.log("Contracts : ", contracts, initialState);
 
-    // hacky hacky
-    const hackyHack = useContext(ContextStore);
+    const iexContext = useContext(ContextStore);
 
 
     const submitContractConsent = (contract) => {
@@ -35,7 +34,8 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
             console.log("Now : ", selectedTab, " goes to ", contracts.length)
             setSelectedTab(selectedTab + 1);           
         } else {
-            hackyHack._setStageHack(hackyHack.currentStage+1)
+            console.log(`stage from ${iexContext.currentStage} to ${iexContext.currentStage+1}`);
+            iexContext.upgradeStage(iexContext.currentStage+1)
         }
     }
 
