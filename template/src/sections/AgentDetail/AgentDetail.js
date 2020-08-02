@@ -9,7 +9,7 @@ export default function AgentDetail({ theme }) {
         <Page theme={theme} withMargin={true} title="IHR ANSPRECHPARTNER">
             <div className="agentDetail">
                 <div className="lhs">
-                    <img src={ffmap`sender.image.url`} className={css`
+                    <img src='https://www.pexels.com/photo/1138903/download/?search_query=professional&tracking_id=zq1e8vodlv' className={css`
                             max-width: 100%;
                         `} />
                 </div>
@@ -20,8 +20,8 @@ export default function AgentDetail({ theme }) {
                     {ffmap`sender.mobile` && <div>Mobile : {ffmap`sender.mobile`}</div>}
 
                     <div>
-                        {ffmap`company.companyStreet`}&nbsp;
-                        {ffmap`company.companyPostcode`}&nbsp;{ffmap`company.companyCity`}&nbsp;
+                        {ffmap`company.companyStreet`}
+                        {ffmap`company.companyPostcode`}  {ffmap`company.companyCity`}
                         {ffmap`company.companyUrl`}
                     </div>
 
