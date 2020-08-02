@@ -1,20 +1,33 @@
 import React from 'react'
 import { basetheme } from '../../styles/IEXTheme'
 import { css, injectGlobal } from 'emotion';
+import Moment from 'moment';
+import { currency } from '../../lib/FormatUtils';
 
-export default function Fact({ theme, label, value }) {
+export default function Fact({ type, theme, label, value }) {
     const mytheme = theme ? theme : basetheme;
+    const valuePresent = value && ((''+value).indexOf('undefined')<0);
     const rowClass = css`
         // row class
     `;
     const altRow = `.${rowClass}:nth-child(even) {background-color: ${theme.brand.colors.alternateRow};}`;
-    console.log("ALT ROW : ",altRow);
     injectGlobal`${altRow}`
-
+    var v = value;
+    if (valuePresent){
+        if (type === 'date'){
+            v=Moment(new Date(value*1000)).format('DD/MM/yyyy');
+        }else if (type === 'currency'){
+            v=currency(value);
+        }
+    }
     return (
-        <div className={['row',rowClass].join(' ')}>
-            <div className="label">{label}</div>
-            <div className="value">{value}</div>
-        </div>
+        <>
+            {valuePresent &&
+            <div className={['row',rowClass].join(' ')}>
+                <div className="label">{label}</div>
+                <div className="value">{v}</div>
+            </div>
+            }
+        </>
     );
 }

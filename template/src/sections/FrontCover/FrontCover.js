@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './FrontCover.scss'
-
+import { ffmap, ContextStore } from '../../lib/Context'
 //
 import HeroImage from '../../mock/pics/modern-building-against-sky-323780.jpg';
 import Header from '../Header/Header';
 import Page from '../Page/Page';
+import { currency } from '../../lib/FormatUtils';
 
 export default function FrontCover({ theme, title, imgObj }) {
     console.log("IMG OBJ : ", imgObj);
+    const iexContext = useContext(ContextStore);
+    console.log('iexContext', iexContext);
+    const addressStreet = ffmap`entity.addresses..street`
+    console.log("IMG OBJ : ", imgObj, addressStreet);
+    const addressStr = addressStreet ? (`${addressStreet} | ${ffmap`entity.addresses..zipcode`} ${ffmap`entity.addresses..city`}`):( ffmap`entity.street`);
+    const frontCoverText = `Objekt: ${ffmap`entity.identifier`} | Neusserkoppelstraße 29 a | 26486 Wangerooge | ${ffmap`entity.purchaseprice` ? currency(ffmap`entity.purchaseprice`) : ''}${ffmap`entity.rent` ? currency(ffmap`entity.rent`) : ''} `
     return (
         <Page className="frontCover" theme={theme}>
             <div className="desc">
                 <div className="title">{title}</div>
-                <div className="data">Objekt: 16068 | Neusserkoppelstraße 29 a | 26486&nbsp;Wangerooge | 779.000,00 € </div>
+                <div className="data">{frontCoverText}</div>
             </div>
             <div className="pic" >
                 <div className="picHolder" style={{
