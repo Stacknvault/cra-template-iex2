@@ -100,6 +100,11 @@ const ffmap = (strings, ...values) => {
             answer = q(`$.${strings[0]}`)[0];
             // console.log("Answer without .value: ",answer);
             if (answer) {
+                //FF-35
+                if (answer.values && answer.values.length>0 && answer.values[0]===''){
+                    return undefined;
+                }
+                //END FF-35
                 return answer;
             }
             // okay loop through all the default values
