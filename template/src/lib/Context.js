@@ -10,9 +10,15 @@ const Context = ({ children }) => {
     const [config, setConfig] = useState(false);
 
     function upgradeStage(toStage) {
-        const exposeId = document.location.href.match('\/render\/([^\/]*)')[1]; // maybe better it came from the context
-        console.log('The expose id is ', exposeId);
-        fetch(`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/public/expose/${exposeId}/track`, 
+        const m = document.location.href.match('\/render\/([^\/]*)');
+        const local = !m || m.length < 2;
+        if (local){
+            const newIex = {...iex}
+            newIex.currentStage++
+            setIEX(newIex);
+        }else{
+            const exposeId = m[1]; // maybe better it came from the context
+            fetch(`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/public/expose/${exposeId}/track`, 
             { 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: '<p>30.Juli 12:19 Uhr: Es wurden mehr Informationen angefordert</p>', stage: toStage}),
@@ -20,9 +26,11 @@ const Context = ({ children }) => {
             })
             .then(jsonify)
             .then(result => {
-                console.log('Fetching context again');
-                fetchContext();
+                // fetchContext();
+                // for some reason this is not always working
+                window.document.location.reload();
             }, reportError);
+        }
     }
 
     const jsonify = res => res.json();
@@ -92,6 +100,11 @@ const ffmap = (strings, ...values) => {
             answer = q(`$.${strings[0]}`)[0];
             // console.log("Answer without .value: ",answer);
             if (answer) {
+                //FF-35
+                if (answer.values && answer.values.length>0 && answer.values[0]===''){
+                    return undefined;
+                }
+                //END FF-35
                 return answer;
             }
             // okay loop through all the default values
