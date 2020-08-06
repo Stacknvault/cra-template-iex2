@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Expose from './Expose';
-import { Context } from './lib/Context'
+import { Context, ContextStore } from './lib/Context'
+import MissingVars from './MisisngVars';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Context><Expose /></Context>
+    <Context>
+      <Expose />
+      <MissingVars/>  
+    </Context>
   </React.StrictMode>,
   document.getElementById('root')
 );

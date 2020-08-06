@@ -1,7 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
 import jp from 'jsonpath';
 
-
+export const getExternalConfig = () => {
+    if (window.document.location.hash){
+        try{
+            return JSON.parse(decodeURI(window.document.location.hash.substring(1)))
+        }catch(e){
+            console.log('getExternalConfig error', getExternalConfig);
+            return undefined;
+        }
+        
+    }
+    return undefined;
+}
 const ContextStore = React.createContext({});
 const Context = ({ children }) => {
     const [iex, setIEX] = useState({});
@@ -38,10 +49,10 @@ const Context = ({ children }) => {
     const fetchContext = () => {
         var contextURL = 'assets/context/context.json';
         var cognitotoken = '';
-        if (window.document.location.hash){
-            const config = JSON.parse(decodeURI(window.document.location.hash.substring(1)))
-            contextURL=config.contextURL
-            cognitotoken = config.cognitotoken;
+        const externalConfig = getExternalConfig();
+        if (externalConfig && externalConfig.contextURL && externalConfig.cognitotoken){
+            contextURL=externalConfig.contextURL
+            cognitotoken = externalConfig.cognitotoken;
         }
         fetch(contextURL, { headers: {cognitotoken} })
             .then(jsonify)
@@ -73,7 +84,13 @@ const Stage = ({ level, children }) => {
     return <>{children}</>;
 }
 
-
+window.missingVars = []
+const addMissingVar = (ms) => {
+    if ( ! window.missingVars.find((item)=>item===ms)){
+        window.missingVars = [ ...window.missingVars, ms ];
+        window.missingVars.sort();
+    } 
+}
 const ffmap = (strings, ...values) => {
     const iex = ContextStore._currentValue.iex;
     // console.log("Path : ",strings[0], iex)
@@ -102,6 +119,7 @@ const ffmap = (strings, ...values) => {
             if (answer) {
                 //FF-35
                 if (answer.values && answer.values.length>0 && answer.values[0]===''){
+                    addMissingVar(strings);
                     return undefined;
                 }
                 //END FF-35
@@ -112,10 +130,12 @@ const ffmap = (strings, ...values) => {
                 if (values[0]) return values[0];
             }
             // i give up....
+            addMissingVar(strings);
             return undefined;
         }
     } catch (e) {
         console.log(`Error trying to deference ${strings}`, e);
+        addMissingVar(strings);
         return 'ERROR';
     }
 }
