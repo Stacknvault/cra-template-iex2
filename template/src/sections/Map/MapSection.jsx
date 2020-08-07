@@ -230,7 +230,7 @@ const MapSection = ({ className, marker, traffic, controls }) => {
 
   const MapComponent = compose(
     withProps({
-      googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAK_Tm-DhtbHz-SRCEzKXGxM3hZGMXtMtE&libraries=geometry,drawing,places",
+      googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${apiKey}&libraries=geometry,drawing,places`,
       loadingElement: <div style={{ height: `100%` }} />,
       containerElement: <div style={{ height: `580px` }} />,
       mapElement: <div style={{ height: `100%` }} />,
