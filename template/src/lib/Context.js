@@ -29,7 +29,7 @@ const Context = ({ children }) => {
             setIEX(newIex);
         }else{
             const exposeId = m[1]; // maybe better it came from the context
-            fetch(`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/public/expose/${exposeId}/track`, 
+            fetch(`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/public/expose/${exposeId}/track?async`, 
             { 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: '<p>30.Juli 12:19 Uhr: Es wurden mehr Informationen angefordert</p>', stage: toStage}),
@@ -37,16 +37,16 @@ const Context = ({ children }) => {
             })
             .then(jsonify)
             .then(result => {
-                // fetchContext();
+                fetchContext(true);
                 // for some reason this is not always working
-                window.document.location.reload();
+                // setTimeout(()=>window.document.location.reload(), 1000)
             }, reportError);
         }
     }
 
     const jsonify = res => res.json();
     const reportError = error => { setError("" + error) };
-    const fetchContext = () => {
+    const fetchContext = (expectStageChange) => {
         var contextURL = 'assets/context/context.json';
         var cognitotoken = '';
         const externalConfig = getExternalConfig();
@@ -57,6 +57,12 @@ const Context = ({ children }) => {
         fetch(contextURL, { headers: {cognitotoken} })
             .then(jsonify)
             .then(result => {
+                if (expectStageChange && iex.currentStage === result.currentStage){
+                    // let's try it again
+                    console.log('Retrying context fetch until we see a stage change')
+                    setTimeout(()=>fetchContext(true), 1000);
+                    return;   
+                }
                 setIEX(result);
                 setError(null);
                 fetch('assets/context/config.json', { headers: {} })

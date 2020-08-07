@@ -14,7 +14,7 @@ export default function AgentDetail({ theme }) {
                         `} />
                 </div>
                 <div className="rhs">
-                    <h3>{ffmap`sender.salutation${'Herr'}`} {ffmap`sender.firstname`} {ffmap`sender.lastname`}</h3>
+                    <h3>{ffmap`sender.salutation${'Herr'}`} {ffmap`sender.firstName`} {ffmap`sender.lastName`}</h3>
                     {ffmap`sender.position` && <div>Position : {ffmap`sender.position`}</div>}
                     {ffmap`sender.phone` && <div>Phone : {ffmap`sender.phone`}</div>}
                     {ffmap`sender.mobile` && <div>Mobile : {ffmap`sender.mobile`}</div>}

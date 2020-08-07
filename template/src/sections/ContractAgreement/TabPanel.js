@@ -9,7 +9,7 @@ import ReactMustache from 'react-mustache'
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 import { ffmap } from '../../lib/Context'
-import { Button } from '@material-ui/core';
+import { Button, CircularProgress } from '@material-ui/core';
 
 
 export default function TabPanel({ children, submitContractConsent, contract, value, index, ...other }) {
@@ -18,6 +18,7 @@ export default function TabPanel({ children, submitContractConsent, contract, va
         return acc;
     }, {});
     const [state, setState] = React.useState(initialState);
+    const [loading, setLoading] = React.useState(false);
 
     const handleChange = (event) => {
         const newState = { ...state, [event.target.name]: event.target.checked };
@@ -27,6 +28,7 @@ export default function TabPanel({ children, submitContractConsent, contract, va
 
     const submitConsent = () => {
         if(!error) {
+            setLoading(true);
             submitContractConsent(contract);
         }
     }
@@ -53,7 +55,10 @@ export default function TabPanel({ children, submitContractConsent, contract, va
                             })}
                         </FormGroup>
                         <FormHelperText>All checkboxes are required.</FormHelperText>
-                        <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} color="primary" style={{backgroundColor: '#abcdef'}}>Submit Consent</Button>
+                        <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} color="primary" style={{backgroundColor: '#abcdef'}}>
+                        {loading && <CircularProgress size={14} />}
+                        {!loading && 'Submit Consent'}
+                        </Button>
                     </FormControl>
                 </>
             )}

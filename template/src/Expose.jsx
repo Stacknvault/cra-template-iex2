@@ -12,7 +12,8 @@ import FloorPlans from './sections/FloorPlans/FloorPlans';
 import AgentDetail from './sections/AgentDetail/AgentDetail';
 import Fact from './sections/FactSheet/Fact';
 import ContractAgreement from './sections/ContractAgreement/ContractAgreement';
-
+import MapSection from './sections/Map/MapSection';
+import Page from './sections/Page/Page';
 const estateTypes = {
   "01TERR": "Terrassenwohnung",
   "01ZO": "Sonstiger Wohnungstyp",
@@ -59,6 +60,9 @@ function Expose() {
       </Stage>
       <Stage level="1">
         <FrontCover theme={theme} title={ffmap`entity.headline`} imgObj={ffmap`entity.mainImage`}></FrontCover>
+        {/* <Page theme={theme} title={'Map'} withMargin={true}>
+          <MapSection className="section" marker={false} traffic={false} controls={false}/>
+        </Page> */}
         <FactSheet title="Wichtiges auf einen Blick" theme={theme}>
           <Fact theme={theme} label="Objekttyp" value={estateTypes[ffmap`entity.estatetype`]} />
           <Fact theme={theme} label="Wohnfläche" value={`ca. ${ffmap`entity.livingarea`} m2`} />
