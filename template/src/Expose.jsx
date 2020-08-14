@@ -137,7 +137,7 @@ function Expose() {
         <TextPage title="Die Lage" theme={theme}>{ffmd(ffmap`entity.textLocation`)}</TextPage>
         <PicturePages theme={theme} imgObjs={ffmap`entity.longImage`}></PicturePages>
         <FloorPlans theme={theme} imgObjs={ffmap`entity.groundplotImage`}></FloorPlans>
-        <AgentDetail theme={theme}></AgentDetail>
+        {ffmap`sender` && <AgentDetail theme={theme}></AgentDetail>}
       </Stage>
     </>
   );
