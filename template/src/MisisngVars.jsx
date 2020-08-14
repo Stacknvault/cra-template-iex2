@@ -8,7 +8,7 @@ function MissingVars() {
   if (externalConfig && externalConfig.showMissingVars){
     return (
 
-      <Box borderRadius={16} style={{ padding: '15px', position: 'absolute', left: 100, top: 100, backgroundColor: 'black', color: 'white', opacity: 0.6}}>
+      <Box borderRadius={16} style={{ padding: '15px', position: 'absolute', left: 20, top: 100, backgroundColor: 'black', color: 'white', opacity: 0.6}}>
         <div style={{ margin: '0.1em', fontWeight: 'bold'}}>Missing variables</div><hr/>
         {window.missingVars.map(item=><>
           <div style={{ margin: '0.1em'}}>{item}</div><br/>
