@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import jp from 'jsonpath';
 
+const stage = process.env.REACT_APP_STAGE || 'production';
+
 export const getExternalConfig = () => {
     if (window.document.location.hash){
         try{
@@ -29,7 +31,7 @@ const Context = ({ children }) => {
             setIEX(newIex);
         }else{
             const exposeId = m[1]; // maybe better it came from the context
-            fetch(`https://4fkovo7dbc.execute-api.eu-central-1.amazonaws.com/public/expose/${exposeId}/track?async`, 
+            fetch(`https://iex2-expose-lambda.${stage}.sf.flowfact-dev.cloud/public/expose/${exposeId}/track?async`, 
             { 
                 headers: {'content-type': 'application/json'}, 
                 body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: '<p>30.Juli 12:19 Uhr: Es wurden mehr Informationen angefordert</p>', stage: toStage}),
