@@ -35,7 +35,7 @@ export default function TabPanel({ children, submitContractConsent, contract, va
     
 
     const error = contract.legislationCheckboxes.filter(cb => {
-        return state[cb.value];
+        return !cb.required || state[cb.value];
     }).length !== contract.legislationCheckboxes.length;
 
     return (

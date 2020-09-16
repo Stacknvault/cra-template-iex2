@@ -27,7 +27,7 @@ export default function PicturePages({theme, imgObjs}) {
             arr.slice(i * size, i * size + size)
         );
 
-    const chunks = chunk(imgObjs, 2);
+    const chunks = imgObjs?chunk(imgObjs, 2):[];
 
     return (
         <>

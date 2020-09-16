@@ -21,6 +21,7 @@ export default function FrontCover({ theme, title, imgObj }) {
                 <div className="title">{title}</div>
                 <div className="data">{frontCoverText}</div>
             </div>
+            {imgObj &&
             <div className="pic" >
                 <div className="picHolder" style={{
                     backgroundImage: `url(${imgObj.uri})`
@@ -34,6 +35,7 @@ export default function FrontCover({ theme, title, imgObj }) {
                     </div>}
                 </div>}
             </div>
+            }
         </Page>
     );
 }

@@ -12,6 +12,7 @@ import {ContextStore} from '../../lib/Context'
 
 export default function ContractAgreement({ theme, contracts, imgObj, children }) {
     const [selectedTab, setSelectedTab] = useState(0);
+    const [acceptedTabCount, setAcceptedTabCount] = useState(0);
 
     const initialState = contracts.reduce((acc, c) => {
         acc[c.technicalName] = false;
@@ -37,11 +38,12 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
             console.log(`stage from ${iexContext.currentStage} to ${iexContext.currentStage+1}`);
             iexContext.upgradeStage(iexContext.currentStage+1)
         }
+        setAcceptedTabCount(acceptedTabCount + 1);
     }
 
     return (
         <div className="fullpage" style={{
-            backgroundImage: `url(${imgObj.uri})`
+            backgroundImage: `url(${imgObj && imgObj.uri})`
         }}>
             <div className="ContractAgreement">
                 <Header theme={theme} className={css`
@@ -49,9 +51,9 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
                 `} />
                 <div className='agreements'>
                     <Tabs className='MuiTabs-root selector' value={selectedTab} onChange={(event, newValue) => { setSelectedTab(newValue) }}>
-                        {contracts.map(contract => {
+                        {contracts.map((contract, index) => {
                             return (
-                                <Tab key={`tabSelector_${contract.id}`} disabled={submitState[contract.technicalName]} label={contract.legislationTextName} />
+                                <Tab key={`tabSelector_${contract.id}`} disabled={acceptedTabCount < index || submitState[contract.technicalName]} label={contract.legislationTextName}/>
                             );
                         })}
                     </Tabs>
