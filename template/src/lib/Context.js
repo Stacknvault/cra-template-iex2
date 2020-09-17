@@ -3,6 +3,7 @@ import jp from 'jsonpath';
 
 const stage = process.env.REACT_APP_STAGE || 'production';
 const devProd = stage === 'production' || stage === 'staging' ? 'prod' : 'dev';
+
 export const getExternalConfig = () => {
     if (window.document.location.hash){
         try{
@@ -39,7 +40,11 @@ const Context = ({ children }) => {
             })
             .then(jsonify)
             .then(result => {
-                fetchContext(true);
+                // we do the local upgrade also to speed up the process while we fetch the new context
+                const newIex = {...iex}
+                newIex.currentStage++
+                setIEX(newIex);
+                fetchContext(true, newIex.currentStage);
                 // for some reason this is not always working
                 // setTimeout(()=>window.document.location.reload(), 1000)
             }, reportError);
@@ -48,7 +53,7 @@ const Context = ({ children }) => {
 
     const jsonify = res => res.json();
     const reportError = error => { setError("" + error) };
-    const fetchContext = (expectStageChange) => {
+    const fetchContext = (expectStageChange, targetStage) => {
         var contextURL = 'assets/context/context.json';
         var cognitotoken = '';
         const externalConfig = getExternalConfig();
@@ -59,10 +64,10 @@ const Context = ({ children }) => {
         fetch(contextURL, { headers: {cognitotoken} })
             .then(jsonify)
             .then(result => {
-                if (expectStageChange && iex.currentStage === result.currentStage){
+                if (expectStageChange && targetStage !== result.currentStage){
                     // let's try it again
                     console.log('Retrying context fetch until we see a stage change')
-                    setTimeout(()=>fetchContext(true), 1000);
+                    setTimeout(()=>fetchContext(true, targetStage), 1000);
                     return;   
                 }
                 setIEX(result);
