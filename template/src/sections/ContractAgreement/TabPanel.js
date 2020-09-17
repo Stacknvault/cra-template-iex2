@@ -49,7 +49,7 @@ export default function TabPanel({ children, submitContractConsent, contract, va
                                 return (
                                     <FormControlLabel
                                         key={cb.value}
-                                        control={<Checkbox checked={state[cb.value]} name={cb.value} onChange={handleChange} />}
+                                        control={<Checkbox disabled={loading} checked={state[cb.value]} name={cb.value} onChange={handleChange} />}
                                         label={<ReactMustache template={cb.label} data={ffmap`company`} />} />
                                 );
                             })}
