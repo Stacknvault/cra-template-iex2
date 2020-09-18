@@ -22,20 +22,43 @@ const Context = ({ children }) => {
     const [ready, setReady] = useState(false);
     const [error, setError] = useState(null);
     const [config, setConfig] = useState(false);
+    const [contractAcceptances, setContractAcceptances] = useState({});
 
     function upgradeStage(toStage) {
+        console.log('contractAcceptances', contractAcceptances);
         const m = document.location.href.match('\/render\/([^\/]*)');
         const local = !m || m.length < 2;
-        if (local){
+        if (1===2 && local){
             const newIex = {...iex}
             newIex.currentStage++
             setIEX(newIex);
         }else{
             const exposeId = m[1]; // maybe better it came from the context
+            const dateStr = new Intl.DateTimeFormat("de-DE", {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+              }).format(new Date());
+
+              var message = `<p>${dateStr} Uhr: Der Besucher hat das interaktive Exposé besucht</p>
+
+              <p>14.Sep. 09:57 Uhr: Es wurden mehr Informationen angefordert</p>`
+
+              Object.keys(contractAcceptances).length && iex.context.company.legislationTexts.map(item=>{
+                item.legislationCheckboxes.filter(i=>contractAcceptances[`${item.id}-${i.value}`]).map(res=>{
+                    message+=`<p>✓${res.label}<\p>
+                    `
+                })
+              })
+              message+=`<p>${dateStr} Uhr: Der Besucher hat das interaktive Exposé verlassen<\p>\n`
+              console.log('message', message);
+              
             fetch(`https://iex2-expose-lambda.${stage}.sf.flowfact-${devProd}.cloud/public/expose/${exposeId}/track?async`, 
             { 
                 headers: {'content-type': 'application/json'}, 
-                body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: '<p>30.Juli 12:19 Uhr: Es wurden mehr Informationen angefordert</p>', stage: toStage}),
+                body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: message, stage: toStage}),
                 method: 'post'
             })
             .then(jsonify)
@@ -49,6 +72,12 @@ const Context = ({ children }) => {
                 // setTimeout(()=>window.document.location.reload(), 1000)
             }, reportError);
         }
+    }
+
+    const setContractAccepted = (id, value, isAccepted) =>{
+        const ca = {...contractAcceptances};
+        ca[`${id}-${value}`] = isAccepted;
+        setContractAcceptances(ca);
     }
 
     const jsonify = res => res.json();
@@ -86,7 +115,7 @@ const Context = ({ children }) => {
     if (!ready) {
         return <></>
     }
-    return <ContextStore.Provider value={{ iex, config, ready, error, upgradeStage, currentStage }}>{children}</ContextStore.Provider>
+    return <ContextStore.Provider value={{ iex, config, ready, error, upgradeStage, currentStage, setContractAccepted }}>{children}</ContextStore.Provider>
 }
 
 const Stage = ({ level, children }) => {
