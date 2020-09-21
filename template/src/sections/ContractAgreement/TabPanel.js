@@ -53,11 +53,11 @@ export default function TabPanel({ children, submitContractConsent, contract, va
                                     <FormControlLabel
                                         key={cb.value}
                                         control={<Checkbox disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
-                                        label={<ReactMustache template={cb.label} data={ffmap`company`} />} />
+                                        label={<ReactMustache template={cb.label + (cb.required?' (*)':'')} data={ffmap`company`} />} />
                                 );
                             })}
                         </FormGroup>
-                        <FormHelperText>All checkboxes are required.</FormHelperText>
+                        <FormHelperText>Alle mit (*) markierten Kontrollkästchen sind obligatorisch.</FormHelperText>
                         <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} color="primary" style={{backgroundColor: '#abcdef'}}>
                         {loading && <CircularProgress size={14} />}
                         {!loading && 'Submit Consent'}

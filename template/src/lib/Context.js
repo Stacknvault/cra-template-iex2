@@ -28,7 +28,7 @@ const Context = ({ children }) => {
         console.log('contractAcceptances', contractAcceptances);
         const m = document.location.href.match('\/render\/([^\/]*)');
         const local = !m || m.length < 2;
-        if (1===2 && local){
+        if (local){
             const newIex = {...iex}
             newIex.currentStage++
             setIEX(newIex);
@@ -83,7 +83,7 @@ const Context = ({ children }) => {
     const jsonify = res => res.json();
     const reportError = error => { setError("" + error) };
     const fetchContext = (expectStageChange, targetStage) => {
-        var contextURL = 'assets/context/context.json';
+        var contextURL = `assets/context/context.json?${Math.random()}`;
         var cognitotoken = '';
         const externalConfig = getExternalConfig();
         if (externalConfig && externalConfig.contextURL && externalConfig.cognitotoken){
@@ -101,7 +101,7 @@ const Context = ({ children }) => {
                 }
                 setIEX(result);
                 setError(null);
-                fetch('assets/context/config.json', { headers: {} })
+                fetch(`assets/context/config.json?${Math.random()}`, { headers: {} })
                     .then(jsonify)
                     .then(result => {
                         setConfig(result)

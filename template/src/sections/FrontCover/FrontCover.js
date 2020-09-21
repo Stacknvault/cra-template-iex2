@@ -14,7 +14,7 @@ export default function FrontCover({ theme, title, imgObj }) {
     const addressStreet = ffmap`entity.addresses..street`
     console.log("IMG OBJ : ", imgObj, addressStreet);
     const addressStr = addressStreet ? (`${addressStreet} | ${ffmap`entity.addresses..zipcode`} ${ffmap`entity.addresses..city`}`):( ffmap`entity.street`);
-    const frontCoverText = `Objekt: ${ffmap`entity.identifier`} | Neusserkoppelstraße 29 a | 26486 Wangerooge | ${ffmap`entity.purchaseprice` ? currency(ffmap`entity.purchaseprice`) : ''}${ffmap`entity.rent` ? currency(ffmap`entity.rent`) : ''} `
+    const frontCoverText = `Objekt: ${ffmap`entity.identifier`} | ${addressStr} | ${ffmap`entity.purchaseprice` ? currency(ffmap`entity.purchaseprice`) : ''}${ffmap`entity.rent` ? currency(ffmap`entity.rent`) : ''} `
     return (
         <Page className="frontCover" theme={theme}>
             <div className="desc">
