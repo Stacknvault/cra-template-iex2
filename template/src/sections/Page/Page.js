@@ -3,10 +3,10 @@ import './page.scss';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { css } from 'emotion';
-import { basetheme } from '../../styles/IEXTheme'
+import { getBaseTheme } from '../../styles/IEXTheme'
 
 export default function Page({ theme, className, title, withMargin, backgroundComp, children }) {
-    const mytheme = theme ? theme : basetheme;
+    const mytheme = theme ? theme : getBaseTheme();
 
     function renderTitle(title) {
         if (title)

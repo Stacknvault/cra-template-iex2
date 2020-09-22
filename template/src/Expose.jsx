@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Expose.scss';
-import { basetheme as theme } from './styles/IEXTheme'
+import { getBaseTheme } from './styles/IEXTheme'
 import { Stage, ffmap, ContextStore } from './lib/Context'
 import { ffmd } from './lib/FormatUtils'
 
@@ -50,7 +50,7 @@ const energySources = {
 function Expose() {
   const iexContext = useContext(ContextStore);
   console.log('iexContext', iexContext);
-
+  const theme = getBaseTheme();
   return (
     <>
       <Stage level="0">

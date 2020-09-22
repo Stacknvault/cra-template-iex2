@@ -1,11 +1,11 @@
 import React from 'react'
 import Page from '../Page/Page';
 import { css } from 'emotion'
-import { basetheme } from '../../styles/IEXTheme'
+import { getBaseTheme } from '../../styles/IEXTheme'
 
 
 export default function PicturePage({ theme, photos, className }) {
-    const mytheme = theme ? theme : basetheme;
+    const mytheme = theme ? theme : getBaseTheme();
     console.log('==>photos', photos)
     return (
         <Page theme={theme} className="picturePage">

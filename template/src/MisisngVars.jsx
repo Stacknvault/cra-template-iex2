@@ -9,11 +9,11 @@ function MissingVars() {
   if (externalConfig && externalConfig.showMissingVars){
     return (
       <Draggable>
-      <Box borderRadius={16} style={{ cursor: 'move', padding: '15px', height: '50%', position: 'absolute', left: 20, top: 100, backgroundColor: 'black', color: 'white', opacity: 0.6}}>
+      <Box borderRadius={16} style={{ cursor: 'move', padding: '15px', height: '50%', position: 'absolute', left: 20, top: 100, backgroundColor: 'black', color: 'white', opacity: 1}}>
         <div style={{ margin: '0.1em', height: '10%', fontWeight: 'bold'}}>Fehlende Variablen</div><hr/>
-        <div style={{overflow: 'scroll', height: '90%'}}>
+        <div style={{overflowY: 'scroll', borderRadius: 5, padding: 5, scrollbars: '', overflowX: 'scroll', backgroundColor: 'lightsalmon', height: '85%'}}>
           {window.missingVars.map(item=><>
-            <div style={{ margin: '0.1em'}}>{item}</div><br/>
+            <div style={{ margin: 0}}>{item}</div><br/>
           </>)}
         </div>
         {window.missingVars.length===0 && (<>

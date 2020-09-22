@@ -1,10 +1,10 @@
 import React from 'react'
 import Page from '../Page/Page';
-import { basetheme } from '../../styles/IEXTheme'
+import { getBaseTheme } from '../../styles/IEXTheme'
 import { css } from 'emotion';
 
 export default function FloorPlans({ theme, imgObjs }) {
-    const mytheme = theme ? theme : basetheme;
+    const mytheme = theme ? theme : getBaseTheme();
     console.log("imgObjs : ",imgObjs);
     return (
         <>

@@ -1,11 +1,11 @@
 import React from 'react'
 import './Header.scss';
 import { css } from 'emotion';
-import { basetheme } from '../../styles/IEXTheme'
+import { getBaseTheme } from '../../styles/IEXTheme'
 import { ffmap } from '../../lib/Context'
 
 export default function Header({theme, className}) {
-    const mytheme = theme ? theme : basetheme;
+    const mytheme = theme ? theme : getBaseTheme();
     return (
         <div className={`logo header ${className}`}>
             <div className={"shield "+css`

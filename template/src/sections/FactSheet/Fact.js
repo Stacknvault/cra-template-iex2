@@ -1,11 +1,11 @@
 import React from 'react'
-import { basetheme } from '../../styles/IEXTheme'
+import { getBaseTheme } from '../../styles/IEXTheme'
 import { css, injectGlobal } from 'emotion';
 import Moment from 'moment';
 import { currency } from '../../lib/FormatUtils';
 
 export default function Fact({ type, theme, label, value }) {
-    const mytheme = theme ? theme : basetheme;
+    const mytheme = theme ? theme : getBaseTheme();
     const valuePresent = value && ((''+value).indexOf('undefined')<0);
     const rowClass = css`
         // row class
