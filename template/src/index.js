@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Expose from './Expose';
 import { Context, ContextStore } from './lib/Context'
-import MissingVars from './MisisngVars';
+import MissingVars from './MissingVars';
 
 ReactDOM.render(
   <React.StrictMode>

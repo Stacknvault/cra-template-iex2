@@ -4,6 +4,16 @@ import jp from 'jsonpath';
 const stage = process.env.REACT_APP_STAGE || 'production';
 const devProd = stage === 'production' || stage === 'staging' ? 'prod' : 'dev';
 
+export const getStage = ()=>{
+    return stage;
+}
+export const getDevProd = ()=>{
+    return devProd
+}
+export const getFFUrl = ()=>{
+    return `https://api.${stage}.cloudios.flowfact-${devProd}.cloud`;
+
+}
 export const getExternalConfig = () => {
     if (window.document.location.hash){
         try{
@@ -23,6 +33,7 @@ const Context = ({ children }) => {
     const [error, setError] = useState(null);
     const [config, setConfig] = useState(false);
     const [contractAcceptances, setContractAcceptances] = useState({});
+    const [cognitotoken, setCognitotoken] = useState('');
 
     function upgradeStage(toStage) {
         console.log('contractAcceptances', contractAcceptances);
@@ -84,13 +95,15 @@ const Context = ({ children }) => {
     const reportError = error => { setError("" + error) };
     const fetchContext = (expectStageChange, targetStage) => {
         var contextURL = `assets/context/context.json?${Math.random()}`;
-        var cognitotoken = '';
+        var _cognitotoken = '';
         const externalConfig = getExternalConfig();
         if (externalConfig && externalConfig.contextURL && externalConfig.cognitotoken){
             contextURL=externalConfig.contextURL
-            cognitotoken = externalConfig.cognitotoken;
+            _cognitotoken = externalConfig.cognitotoken;
         }
-        fetch(contextURL, { headers: {cognitotoken} })
+        console.log('cognitotoken', _cognitotoken);
+        setCognitotoken(_cognitotoken);
+        fetch(contextURL, { headers: {cognitotoken: _cognitotoken} })
             .then(jsonify)
             .then(result => {
                 if (expectStageChange && targetStage !== result.currentStage){
@@ -101,9 +114,10 @@ const Context = ({ children }) => {
                 }
                 setIEX(result);
                 setError(null);
-                fetch(`assets/context/config.json?${Math.random()}`, { headers: {} })
+                fetch(`assets/context/config.json?${Math.random()}`, { headers: {cognitotoken: _cognitotoken} })
                     .then(jsonify)
                     .then(result => {
+                        // resetMissingVars();
                         setConfig(result)
                         setReady(true);
                     }, reportError)
@@ -115,7 +129,7 @@ const Context = ({ children }) => {
     if (!ready) {
         return <></>
     }
-    return <ContextStore.Provider value={{ iex, config, ready, error, upgradeStage, currentStage, setContractAccepted }}>{children}</ContextStore.Provider>
+    return <ContextStore.Provider value={{ iex, config, ready, error, upgradeStage, currentStage, setContractAccepted, cognitotoken }}>{children}</ContextStore.Provider>
 }
 
 const Stage = ({ level, children }) => {
@@ -126,12 +140,17 @@ const Stage = ({ level, children }) => {
     return <>{children}</>;
 }
 
-window.missingVars = []
+const resetMissingVars = ()=>{
+    window.missingVars = [];
+}
+resetMissingVars();
 const addMissingVar = (ms) => {
-    if ( ! window.missingVars.find((item)=>item===ms)){
-        window.missingVars = [ ...window.missingVars, ms ];
+    const _ms=ms instanceof Array?ms[0]:ms;
+    if ( ! window.missingVars.find((item)=>item===_ms)){
+        console.log('no');
+        window.missingVars.push(_ms);
         window.missingVars.sort();
-    } 
+    }
 }
 const ffmap = (strings, ...values) => {
     const iex = ContextStore._currentValue.iex;
@@ -185,4 +204,4 @@ const ffmap = (strings, ...values) => {
 
 
 
-export { Context, ContextStore, Stage, ffmap };
+export { Context, ContextStore, Stage, ffmap, resetMissingVars };
