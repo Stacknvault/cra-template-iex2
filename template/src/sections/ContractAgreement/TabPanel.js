@@ -49,11 +49,12 @@ export default function TabPanel({ children, submitContractConsent, contract, va
                     <FormControl error={error} required={true} >
                         <FormGroup>
                             {contract.legislationCheckboxes.map(cb => {
+                                
                                 return (
                                     <FormControlLabel
                                         key={cb.value}
                                         control={<Checkbox disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
-                                        label={<ReactMustache template={cb.label.replace("<a href='{{cancellationUrl}}' target='_blank' rel='noopener'>Widerrufsbelehrung</a>", "Widerrufsbelehrung" /* !!!! not superproud of this hack but there's a lot of legacy data with this link */) + (cb.required?' (*)':'')} data={ffmap`company`} />} />
+                                        label={<ReactMustache template={cb.label + (cb.required?' (*)':'')} data={{...ffmap`company`, cancellationUrl: 'https://s3.eu-central-1.amazonaws.com/cloudios.development.company-service/legislationtexts/b/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/revocation_terms/1600244681999.html'}} />} />
                                 );
                             })}
                         </FormGroup>

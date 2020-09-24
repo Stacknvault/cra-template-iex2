@@ -75,7 +75,7 @@ function MissingVars() {
                     const propName = m[2];
                     const l=companyLabels[propName];
                     if (l){
-                      label=`company: ${companyLabels[propName]}`
+                      label=`Firma: ${companyLabels[propName]}`
                     }
                   }
                 }
