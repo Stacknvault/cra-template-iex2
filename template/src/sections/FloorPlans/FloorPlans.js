@@ -5,7 +5,7 @@ import { css } from 'emotion';
 
 export default function FloorPlans({ theme, imgObjs }) {
     const mytheme = theme ? theme : getBaseTheme();
-    console.log("imgObjs : ",imgObjs);
+    // console.log("imgObjs : ",imgObjs);
     return (
         <>
             { imgObjs && imgObjs.map && imgObjs.map((plan, idx) => {

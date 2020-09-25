@@ -6,7 +6,7 @@ import { getBaseTheme } from '../../styles/IEXTheme'
 
 export default function PicturePage({ theme, photos, className }) {
     const mytheme = theme ? theme : getBaseTheme();
-    console.log('==>photos', photos)
+    // console.log('==>photos', photos)
     return (
         <Page theme={theme} className="picturePage">
             <div className={`pictureFrame ${className}`}>

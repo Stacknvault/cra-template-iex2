@@ -64,7 +64,7 @@ const energyEfficienceClasses = {
 }
 function Expose() {
   const iexContext = useContext(ContextStore);
-  console.log('iexContext', iexContext);
+  // console.log('iexContext', iexContext);
   const theme = getBaseTheme();
   return (
     <>

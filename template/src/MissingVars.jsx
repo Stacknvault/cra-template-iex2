@@ -35,7 +35,7 @@ function MissingVars() {
                 setSchemas(s);
                 setTypes(t);
                 setReady(true);
-                console.log('schemas and types', s, t);
+                // console.log('schemas and types', s, t);
             }, console.log)
     }, console.log);
   }
@@ -56,7 +56,7 @@ function MissingVars() {
           {window.missingVars.map(item=>{
             // const m = document.location.href.match('\/render\/([^\/]*)');
             
-            console.log('item', item);
+            // console.log('item', item);
             var label = item;
             var actuallyMissing = true;
             if (schemas && schemas.entries){
@@ -69,7 +69,7 @@ function MissingVars() {
                     schemaCaption='Makler' // agent
                   }
                   schemaName=iexContext.iex.context[schemaName]._metadata.schema
-                  console.log(`schema name is ${schemaName}`)
+                  // console.log(`schema name is ${schemaName}`)
                 }else if (schemaName === 'company'){
                   if (m.length>1){
                     const propName = m[2];
@@ -87,7 +87,7 @@ function MissingVars() {
                 const propValue = sc[0]['properties'][propName];
                 if (!propValue){
                   actuallyMissing = false;
-                  console.log(`${item} is actually not missing`)
+                  // console.log(`${item} is actually not missing`)
                 }else{
                   try{label=`${schemaCaption||sc[0].captions.de}: ${propValue.captions.de}`;}catch(e){}
                 }

@@ -36,7 +36,7 @@ const Context = ({ children }) => {
     const [cognitotoken, setCognitotoken] = useState('');
 
     function upgradeStage(toStage) {
-        console.log('contractAcceptances', contractAcceptances);
+        // console.log('contractAcceptances', contractAcceptances);
         const m = document.location.href.match('\/render\/([^\/]*)');
         const local = !m || m.length < 2;
         if (local){
@@ -64,7 +64,7 @@ const Context = ({ children }) => {
                 })
               })
               message+=`<p>${dateStr} Uhr: Der Besucher hat das interaktive Exposé verlassen<\p>\n`
-              console.log('message', message);
+            //   console.log('message', message);
               
             fetch(`https://iex2-expose-lambda.${stage}.sf.flowfact-${devProd}.cloud/public/expose/${exposeId}/track?async`, 
             { 
@@ -101,14 +101,14 @@ const Context = ({ children }) => {
             contextURL=externalConfig.contextURL
             _cognitotoken = externalConfig.cognitotoken;
         }
-        console.log('cognitotoken', _cognitotoken);
+        // console.log('cognitotoken', _cognitotoken);
         setCognitotoken(_cognitotoken);
         fetch(contextURL, { headers: {cognitotoken: _cognitotoken} })
             .then(jsonify)
             .then(result => {
                 if (expectStageChange && targetStage !== result.currentStage){
                     // let's try it again
-                    console.log('Retrying context fetch until we see a stage change')
+                    // console.log('Retrying context fetch until we see a stage change')
                     setTimeout(()=>fetchContext(true, targetStage), 1000);
                     return;   
                 }
@@ -147,7 +147,6 @@ resetMissingVars();
 const addMissingVar = (ms) => {
     const _ms=ms instanceof Array?ms[0]:ms;
     if ( ! window.missingVars.find((item)=>item===_ms)){
-        console.log('no');
         window.missingVars.push(_ms);
         window.missingVars.sort();
     }
@@ -195,7 +194,7 @@ const ffmap = (strings, ...values) => {
             return undefined;
         }
     } catch (e) {
-        console.log(`Error trying to deference ${strings}`, e);
+        // console.log(`Error trying to reference ${strings}`, e);
         addMissingVar(strings);
         return 'ERROR';
     }

@@ -24,7 +24,7 @@ export default function TabPanel({ children, submitContractConsent, contract, va
 
     const handleChange = (event, contract, checkbox) => {
         const newState = { ...state, [event.target.name]: event.target.checked };
-        console.log("State is now: ", newState)
+        // console.log("State is now: ", newState)
         setState(newState);
         iexContext.setContractAccepted(contract.id, checkbox.value, event.target.checked);
     };

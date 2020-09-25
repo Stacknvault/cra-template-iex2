@@ -8,11 +8,11 @@ import Page from '../Page/Page';
 import { currency } from '../../lib/FormatUtils';
 
 export default function FrontCover({ theme, title, imgObj }) {
-    console.log("IMG OBJ : ", imgObj);
+    // console.log("IMG OBJ : ", imgObj);
     const iexContext = useContext(ContextStore);
-    console.log('iexContext', iexContext);
+    // console.log('iexContext', iexContext);
     const addressStreet = ffmap`entity.addresses..street`
-    console.log("IMG OBJ : ", imgObj, addressStreet);
+    // console.log("IMG OBJ : ", imgObj, addressStreet);
     const addressStr = addressStreet ? (`${addressStreet} | ${ffmap`entity.addresses..zipcode`} ${ffmap`entity.addresses..city`}`):( ffmap`entity.street`);
     const frontCoverText = `Objekt: ${ffmap`entity.identifier`} | ${addressStr} | ${ffmap`entity.purchaseprice` ? currency(ffmap`entity.purchaseprice`) : ''}${ffmap`entity.rent` ? currency(ffmap`entity.rent`) : ''} `
     return (
