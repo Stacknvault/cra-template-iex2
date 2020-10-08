@@ -13,7 +13,6 @@ import {ContextStore, ffmap} from '../../lib/Context'
 export default function ContractAgreement({ theme, contracts, imgObj, children }) {
     const [selectedTab, setSelectedTab] = useState(0);
     const [acceptedTabCount, setAcceptedTabCount] = useState(0);
-    console.log('commissionProspect', ffmap`entity.commissionProspect`)
     const filteredContracts = contracts.filter(contract=>contract.legislationTextName!=="Provisionshinweis" || ffmap`entity.commissionProspect`);
     const initialState = filteredContracts.reduce((acc, c) => {
         acc[c.technicalName] = false;

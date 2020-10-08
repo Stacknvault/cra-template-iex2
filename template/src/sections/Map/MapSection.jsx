@@ -178,7 +178,6 @@ const MapSection = ({ className, marker, traffic, controls }) => {
           onSearchBoxMounted: ref => {
             refs.searchBox = ref;
             const textField = document.getElementById('textbox');
-            console.log(state.origin_desc);
             textField.value = state.origin_desc;
           },
           onPlacesChanged: () => {
