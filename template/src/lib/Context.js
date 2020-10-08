@@ -170,7 +170,12 @@ const ffmap = (strings, ...values) => {
         }
         // console.log("Answer and typeof : ",answer, typeof answer);
         if (answer && typeof answer !== 'function') {
-            return answer;
+            if (answer.length===0){
+                addMissingVar(strings);
+                return undefined;
+            }else{
+                return answer;
+            }
         } else {
             // console.log("What is it's a normal object????!?!!?");
             // okay entities have weird value arrays but sender obj doesn't!!!!
@@ -178,7 +183,7 @@ const ffmap = (strings, ...values) => {
             // console.log("Answer without .value: ",answer);
             if (answer) {
                 //FF-35
-                if (answer.values && answer.values.length>0 && answer.values[0]===''){
+                if ((answer.values && answer.values.length>0 && answer.values[0]==='') || (answer.length===0)){
                     addMissingVar(strings);
                     return undefined;
                 }
