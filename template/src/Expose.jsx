@@ -89,7 +89,7 @@ function Expose() {
           <Fact theme={theme} label="Gäste-WC " value={ffmap`entity.numseptoilets` > 0 ? 'Ja': 'Nein'} />
           {/* <Fact theme={theme} label="Heizungsart" value="Zentralheizung???" /> */}
           
-          <Fact theme={theme} label="ImmoNr" value={ffmap`entity.identifier`} />
+          <Fact theme={theme} label="Objekt" value={ffmap`entity.identifier`} />
           {!ffmap`entity.addresses..street` &&
             <Fact theme={theme} label="Straße" value={ffmap`entity.street`} />
           } 
