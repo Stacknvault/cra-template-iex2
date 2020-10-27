@@ -21,33 +21,34 @@ const companyLabels = {
 function MissingVars() {
   const iexContext = useContext(ContextStore);
   const externalConfig = getExternalConfig();
-  const [schemas, setSchemas] = useState(null);
-  const [types, setTypes] = useState(null);
+  const schemas = iexContext && iexContext.iex.context.schemas;
+  const allTypes = iexContext && iexContext.iex.context.allTypes;
   const [ready, setReady] = useState(false)
+  // console.log('externalConfig', externalConfig);
 
-  const fetchSchemasAndTypes = ()=>{
-    fetch(`${getFFUrl()}/schema-service/v2/schemas?size=1000000`, { headers: {cognitotoken: iexContext.cognitotoken} })
-    .then(res=>res.json())
-    .then(s => {
-        fetch(`${getFFUrl()}/schema-service/datatypes/alltypes`, { headers: {cognitotoken: iexContext.cognitotoken} })
-            .then(res=>res.json())
-            .then(t => {
-                setSchemas(s);
-                setTypes(t);
-                setReady(true);
-                // console.log('schemas and types', s, t);
-            }, console.log)
-    }, console.log);
-  }
+  // const fetchSchemasAndTypes = ()=>{
+  //   fetch(`${getFFUrl()}/schema-service/v2/schemas?size=1000000`, { headers: {cognitotoken: iexContext.cognitotoken} })
+  //   .then(res=>res.json())
+  //   .then(s => {
+  //       fetch(`${getFFUrl()}/schema-service/datatypes/alltypes`, { headers: {cognitotoken: iexContext.cognitotoken} })
+  //           .then(res=>res.json())
+  //           .then(t => {
+  //               setSchemas(s);
+  //               setTypes(t);
+  //               setReady(true);
+  //               // console.log('schemas and types', s, t);
+  //           }, console.log)
+  //   }, console.log);
+  // }
 
-  useEffect(()=>{
-    if (externalConfig && externalConfig.showMissingVars) {
-      fetchSchemasAndTypes();
-    }
-  }, [])
+  // useEffect(()=>{
+  //   if (externalConfig && externalConfig.showMissingVars) {
+  //     fetchSchemasAndTypes();
+  //   }
+  // }, [])
 
 
-  if (ready && externalConfig && externalConfig.showMissingVars){
+  if (externalConfig && externalConfig.showMissingVars){
     return (
       <Draggable>
       <Box borderRadius={16} style={{ cursor: 'move', padding: '15px', height: '50%', position: 'absolute', left: 20, top: 100, backgroundColor: 'black', color: 'white', opacity: 1}}>
@@ -59,7 +60,7 @@ function MissingVars() {
             // console.log('item', item);
             var label = item;
             var actuallyMissing = true;
-            if (schemas && schemas.entries){
+            if (schemas){
               const m = item.match('([^\.]*)\.(.*)$');
               var schemaName = m && m.length>0?m[1]:'';
               var schemaCaption = '';
@@ -80,7 +81,7 @@ function MissingVars() {
                   }
                 }
               }
-              const sc = schemas.entries.filter(s=>s.name===schemaName);
+              const sc = schemas.filter(s=>s.name===schemaName);
               if (sc.length>0 && m.length>1){
                 const propName = m[2];
                 // console.log('schemaName', sc[0], item, schemaName, propName)

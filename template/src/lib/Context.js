@@ -145,13 +145,21 @@ const resetMissingVars = ()=>{
 }
 resetMissingVars();
 const addMissingVar = (ms) => {
-    const _ms=ms instanceof Array?ms[0]:ms;
-    if ( ! window.missingVars.find((item)=>item===_ms)){
-        window.missingVars.push(_ms);
+    if ( ! window.missingVars.find((item)=>item===ms)){
+        window.missingVars.push(ms);
         window.missingVars.sort();
     }
 }
 const ffmap = (strings, ...values) => {
+    var str = "";
+    for (var i=0; i<strings.length; i++){
+        str+=strings[i];
+        if (i<values.length){
+            str+=values[i];
+        }
+    }
+
+    // console.log(str);
     const iex = ContextStore._currentValue.iex;
     // console.log("Path : ",strings[0], iex)
     function q(jpath) {
@@ -159,7 +167,7 @@ const ffmap = (strings, ...values) => {
     }
     try {
         // try first with weird FF blah.values array
-        let answer = q(`$.${strings[0]}.values`);
+        let answer = q(`$.${str}.values`);
         // console.log("Answer with .values: ",answer)
         answer = answer[0];
 
@@ -169,38 +177,40 @@ const ffmap = (strings, ...values) => {
             answer = answer[0];
         }
         // console.log("Answer and typeof : ",answer, typeof answer);
+        // if ((answer || (answer.values && answer.values.length===1 && answer.values[0]==false)) && typeof answer !== 'function') {
         if (answer && typeof answer !== 'function') {
             if (answer.length===0){
-                addMissingVar(strings);
+                addMissingVar(str);
                 return undefined;
             }else{
+                // console.log('======================>answer1', answer)
                 return answer;
             }
         } else {
             // console.log("What is it's a normal object????!?!!?");
             // okay entities have weird value arrays but sender obj doesn't!!!!
-            answer = q(`$.${strings[0]}`)[0];
+            answer = q(`$.${str}`)[0];
             // console.log("Answer without .value: ",answer);
             if (answer) {
                 //FF-35
                 if ((answer.values && answer.values.length>0 && answer.values[0]==='') || (answer.length===0)){
-                    addMissingVar(strings);
+                    addMissingVar(str);
                     return undefined;
                 }
                 //END FF-35
+                // console.log('======================>answer2', answer)
+                // check if values[0]=false
+                if (answer.values && answer.values.length===1 && answer.values[0]==false){
+                    return "false";
+                }
                 return answer;
             }
-            // okay loop through all the default values
-            for (let i = 0; i < values.length; i++) {
-                if (values[0]) return values[0];
-            }
-            // i give up....
-            addMissingVar(strings);
+            addMissingVar(str);
             return undefined;
         }
     } catch (e) {
         // console.log(`Error trying to reference ${strings}`, e);
-        addMissingVar(strings);
+        addMissingVar(str);
         return 'ERROR';
     }
 }

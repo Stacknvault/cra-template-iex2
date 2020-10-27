@@ -1,5 +1,7 @@
 {
     "excludes": [
-        {"fieldName": "entity.addresses", "minStage": 1}
+        {"fieldName": "entity.addresses", "minStage": 1},
+        {"fieldName": "entity.latitude", "minStage": 1},
+        {"fieldName": "entity.longitude", "minStage": 1}
     ]
 }

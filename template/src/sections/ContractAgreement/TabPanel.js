@@ -42,30 +42,34 @@ export default function TabPanel({ children, submitContractConsent, contract, va
     }).length !== contract.legislationCheckboxes.length;
 
     return (
-        <div className='Tab' hidden={value !== index} {...other}>
-            {value === index && (
-                <>
-                    <ReactMustache template={contract.legislationTextContent} data={ffmap`company`} />
-                    <FormControl error={error} required={true} >
-                        <FormGroup>
-                            {contract.legislationCheckboxes.map(cb => {
-                                
-                                return (
-                                    <FormControlLabel
-                                        key={cb.value}
-                                        control={<Checkbox disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
-                                        label={<ReactMustache template={cb.label + (cb.required?' (*)':'')} data={{...ffmap`company`, cancellationUrl: 'https://s3.eu-central-1.amazonaws.com/cloudios.development.company-service/legislationtexts/b/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/revocation_terms/1600244681999.html'}} />} />
-                                );
-                            })}
-                        </FormGroup>
-                        <FormHelperText>Alle mit (*) markierten Kontrollkästchen sind obligatorisch.</FormHelperText>
-                        <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} color="primary" style={{backgroundColor: '#abcdef'}}>
-                        {loading && <CircularProgress size={14} />}
-                        {!loading && 'Submit Consent'}
-                        </Button>
-                    </FormControl>
-                </>
-            )}
+        <>
+        {value === index && (
+        <>
+        <div className='Text'>
+            <ReactMustache template={contract.legislationTextContent} data={ffmap`company`} />
         </div>
+        <div className='Tab' hidden={value !== index} {...other}>
+                <FormControl error={error} required={true} >
+                    <FormGroup>
+                        {contract.legislationCheckboxes.map(cb => {
+                            
+                            return (
+                                <FormControlLabel
+                                    key={cb.value}
+                                    control={<Checkbox disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
+                                    label={<ReactMustache template={cb.label + (cb.required?' (*)':'')} data={{...ffmap`company`, cancellationUrl: 'https://s3.eu-central-1.amazonaws.com/cloudios.development.company-service/legislationtexts/b/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/revocation_terms/1600244681999.html'}} />} />
+                            );
+                        })}
+                    </FormGroup>
+                    <FormHelperText>Alle mit (*) markierten Kontrollkästchen sind obligatorisch.</FormHelperText>
+                    <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} color="primary" style={{backgroundColor: '#abcdef'}}>
+                    {loading && <CircularProgress size={14} />}
+                    {!loading && 'Submit Consent'}
+                    </Button>
+                </FormControl>
+        </div>
+        </>
+            )}
+            </>
     );
 }
