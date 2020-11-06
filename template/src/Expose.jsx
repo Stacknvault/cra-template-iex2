@@ -266,18 +266,18 @@ function Expose() {
           <Fact type="currency" theme={theme} label="Mietepreis" value={ffmap`entity.rent`} />
           <Fact theme={theme} label="Käufer-Provision" value={ffmap`entity.commissionProspect`} /> */}
         </SmartFactSheet>
-        <TextPage title="Die Immobilie" theme={theme}>
+        {ffmap`entity.textEstate` && <TextPage title="Die Immobilie" theme={theme}>
           {ffmd(ffmap`entity.textEstate`)}
-        </TextPage>
+        </TextPage>}
         <TextPage title="Ausstattungsbeschreibung" theme={theme}>
           {ffmd(ffmap`entity.textEnvironment`)}
         </TextPage>
-        <TextPage title="Die Lage" theme={theme}>{ffmd(ffmap`entity.textLocation`)}</TextPage>
+        {ffmap`entity.textLocation` && <TextPage title="Die Lage" theme={theme}>{ffmd(ffmap`entity.textLocation`)}</TextPage>}
         <MapPage theme={theme} title="MAP"></MapPage>
-        <TextPage title="Bebaubarkeit" theme={theme}>{ffmd(ffmap`entity.textConstructability`)}</TextPage>
-        <TextPage title="Erschließung" theme={theme}>{ffmd(ffmap`entity.textDevelopment`)}</TextPage>
-        <TextPage title="Freitext" theme={theme}>{ffmd(ffmap`entity.textFree`)}</TextPage>
-        <TextPage title="Provisionshinweis" theme={theme}>{ffmd(ffmap`entity.commissionInformation`)}</TextPage>
+        {ffmap`entity.textConstructability` && <TextPage title="Bebaubarkeit" theme={theme}>{ffmd(ffmap`entity.textConstructability`)}</TextPage>}
+        {ffmap`entity.textDevelopment` && <TextPage title="Erschließung" theme={theme}>{ffmd(ffmap`entity.textDevelopment`)}</TextPage>}
+        {ffmap`entity.textFree` && <TextPage title="Freitext" theme={theme}>{ffmd(ffmap`entity.textFree`)}</TextPage>}
+        {ffmap`entity.commissionInformation` && <TextPage title="Provisionshinweis" theme={theme}>{ffmd(ffmap`entity.commissionInformation`)}</TextPage>}
         <PicturePages theme={theme} imgObjs={ffmap`entity.longImage`}></PicturePages>
         <FloorPlans theme={theme} imgObjs={ffmap`entity.groundplotImage`}></FloorPlans>
         {ffmap`sender` && <AgentDetail theme={theme}></AgentDetail>}
