@@ -15,7 +15,8 @@ const companyLabels = {
   "companyFax": "Fax",
   "companyPhoneInfo": "Telefonnummer",
   "companyUrl": "Firmenwebsite",
-  "logo.url": "Logo URL"
+  "legislationTexts": "Einstellungen: Einwilligungen und Belehrungen",
+  "logo.url": "Logo URL",
 }
 
 function MissingVars() {
