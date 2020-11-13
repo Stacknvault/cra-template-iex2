@@ -23,10 +23,12 @@ export default function FrontCover({ theme, title, imgObj }) {
             </div>
             {imgObj &&
             <div className="pic" >
-                <div className="picHolder" style={{
-                    backgroundImage: `url(${imgObj.uri})`
-                }}>
-
+                <div className="picHolder"
+                // style={{
+                //     backgroundImage: `url(${imgObj.uri})`
+                // }}
+                >
+                    <img width="100%" src={imgObj.uri}/>
                 </div>
                 {imgObj.headline && <div className="headline">
                     {imgObj.headline}

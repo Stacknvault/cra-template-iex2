@@ -13,9 +13,13 @@ export default function PicturePage({ theme, photos, className }) {
                 {photos.map(photoObj => {
                     return (
                         <div key={photoObj.uri} className="place">
-                            <div className="picHolder" style={{
-                                backgroundImage: `url(${photoObj.uri})`
-                            }}></div>
+                            <div className="picHolder" 
+                            // style={{
+                            //     backgroundImage: `url(${photoObj.uri})`
+                            // }}
+                            >
+                                <img width="100%" src={photoObj.uri}/>
+                            </div>
                             {/* className="description" */}
                             <div className={"description " + css`
                                 background-color: ${mytheme.brand.colors.primary};

@@ -13,7 +13,7 @@ import {ContextStore, ffmap} from '../../lib/Context'
 export default function ContractAgreement({ theme, contracts, imgObj, children }) {
     const [selectedTab, setSelectedTab] = useState(0);
     const [acceptedTabCount, setAcceptedTabCount] = useState(0);
-    const filteredContracts = contracts.filter(contract=>contract.legislationTextName!=="Provisionshinweis" || ffmap`entity.commissionProspect`);
+    const filteredContracts = (contracts && contracts.filter(contract=>contract.legislationTextName!=="Provisionshinweis" || ffmap`entity.commissionProspect`)) || [];
     const initialState = filteredContracts.reduce((acc, c) => {
         acc[c.technicalName] = false;
         return acc;
@@ -35,27 +35,34 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
         }
         setAcceptedTabCount(acceptedTabCount + 1);
     }
-
-    return (
-        <div className="fullpage" style={{
-            backgroundImage: `url(${imgObj && imgObj.uri})`
-        }}>
-            <div className="ContractAgreement">
-                <Header theme={theme} className={css`
-                    width: 100mm;
-                `} />
-                <div className='agreements'>
-                    <Tabs className='MuiTabs-root selector' value={selectedTab} onChange={(event, newValue) => { setSelectedTab(newValue) }}>
-                        {filteredContracts.map((contract, index) => {
-                            return (
-                                <Tab key={`tabSelector_${contract.id}`} disabled={acceptedTabCount < index || submitState[contract.technicalName]} label={contract.legislationTextName}/>
-                            );
-                        })}
-                    </Tabs>
-                    {filteredContracts.map((contract, idx) => <TabPanel theme={theme} submitContractConsent={submitContractConsent} key={`tabPannel_${contract.id}`} value={selectedTab} index={idx} contract={contract} />)}
+    if (filteredContracts.length>0){
+        return (
+            <div className="fullpage" 
+            // style={{
+            //     backgroundImage: `url(${imgObj && imgObj.uri})`
+            // }}
+            >
+                <img style={{position: 'absolute', left: 0, top: 0}} width="100%" src={imgObj.uri}/>
+                <div className="ContractAgreement">
+                    <Header theme={theme} className={css`
+                        width: 100mm;
+                    `} />
+                    <div className='agreements'>
+                        <Tabs className='MuiTabs-root selector' value={selectedTab} onChange={(event, newValue) => { setSelectedTab(newValue) }}>
+                            {filteredContracts.map((contract, index) => {
+                                return (
+                                    <Tab key={`tabSelector_${contract.id}`} disabled={acceptedTabCount < index || submitState[contract.technicalName]} label={contract.legislationTextName}/>
+                                );
+                            })}
+                        </Tabs>
+                        {filteredContracts.map((contract, idx) => <TabPanel theme={theme} submitContractConsent={submitContractConsent} key={`tabPannel_${contract.id}`} value={selectedTab} index={idx} contract={contract} />)}
+                    </div>
                 </div>
             </div>
-        </div>
-
-    );
+    
+        );
+    }else{
+        return <></>;
+    }
+    
 }
