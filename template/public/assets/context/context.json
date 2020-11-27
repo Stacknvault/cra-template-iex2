@@ -1,6 +1,11 @@
 {
    "context" : {
       "entity" : {
+         "textConstructability" : {
+            "values" : [
+               "sss"
+            ]
+         },
          "commissionPartner" : {
             "values" : [
                ""
@@ -401,6 +406,13 @@
                {
                   "online" : true,
                   "uri" : "https://s3.eu-central-1.amazonaws.com/cloudios.development.image/fb/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/a2/0e291f7f-b53b-475e-9efc-157f64279ca2/bc/976d8e56-16cc-4504-a1fd-17595aeb0abc.jpg",
+                  "headline" : "",
+                  "position" : 1,
+                  "description" : ""
+               },
+               {
+                  "online" : true,
+                  "uri" : "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
                   "headline" : "",
                   "position" : 1,
                   "description" : ""
@@ -54798,7 +54810,7 @@
          "companyHrb" : null,
          "navisionId" : null,
          "companyResponsiblePersons" : null,
-         "logo" : null,
+         "logo" : {"url": "https://stacknvault.com/assets/images/logo_transparent.png"},
          "companyUrlTwitter" : null,
          "companyUrlImprint" : "http://www.wurst.de",
          "domain" : "gmail.com",

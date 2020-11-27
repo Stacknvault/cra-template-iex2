@@ -3,8 +3,6 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ReactMustache from 'react-mustache'
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { ContextStore } from '../..//lib/Context'
@@ -56,13 +54,13 @@ export default function TabPanel({ children, submitContractConsent, contract, va
                             return (
                                 <FormControlLabel
                                     key={cb.value}
-                                    control={<Checkbox disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
+                                    control={<Checkbox className="greenChk" disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
                                     label={<ReactMustache template={cb.label + (cb.required?' (*)':'')} data={{...ffmap`company`, cancellationUrl: 'https://s3.eu-central-1.amazonaws.com/cloudios.development.company-service/legislationtexts/b/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/revocation_terms/1600244681999.html'}} />} />
                             );
                         })}
                     </FormGroup>
                     <FormHelperText>Alle mit (*) markierten Kontrollkästchen sind obligatorisch.</FormHelperText>
-                    <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} color="primary" style={{backgroundColor: '#abcdef'}}>
+                    <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} style={error?{}:{backgroundColor: '#05B9AE', color: 'white'}}>
                     {loading && <CircularProgress size={14} />}
                     {!loading && 'Submit Consent'}
                     </Button>

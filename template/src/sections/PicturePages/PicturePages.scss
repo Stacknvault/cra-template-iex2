@@ -5,6 +5,7 @@
     grid-template-areas: "pics";
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    
 
     .pictureFrame {
         grid-area: "pics";
@@ -18,18 +19,32 @@
         .place {
             position: relative;
             overflow: hidden;
+            margin-top: 10mm;
 
             .picHolder {
                 width: 100%;
-                height: 100%;;
+                height: 100%;
+                // margin: 5px;
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
                 -webkit-print-color-adjust: exact;
                 transition: all 10s ease-in-out;
+                @media print {
+                    text-align: center;
+                }
 
                 &:hover {
                     transform: scale(2);
+                }
+                .picImg {
+                    @media print {
+                        height: 100mm;
+                        text-align: center;
+                    }
+                    @media screen {
+                        width: 100%
+                    }
                 }
             }
 
@@ -47,4 +62,9 @@
             }
         }
     }
+}
+.withMargin {
+    margin-left: 120mm;
+    margin-right: 20mm;
+    margin-top: 10mm;
 }

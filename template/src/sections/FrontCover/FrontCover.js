@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import Page from '../Page/Page';
 import { currency } from '../../lib/FormatUtils';
 
-export default function FrontCover({ theme, title, imgObj }) {
+export default function FrontCover({ theme, title, imgObj, anchor }) {
     // console.log("IMG OBJ : ", imgObj);
     const iexContext = useContext(ContextStore);
     // console.log('iexContext', iexContext);
@@ -16,7 +16,7 @@ export default function FrontCover({ theme, title, imgObj }) {
     const addressStr = addressStreet ? (`${addressStreet} | ${ffmap`entity.addresses..zipcode`} ${ffmap`entity.addresses..city`}`):( ffmap`entity.street`);
     const frontCoverText = `Objekt: ${ffmap`entity.identifier`} | ${addressStr} | ${ffmap`entity.purchaseprice` ? currency(ffmap`entity.purchaseprice`) : ''}${ffmap`entity.rent` ? currency(ffmap`entity.rent`) : ''} `
     return (
-        <Page className="frontCover" theme={theme}>
+        <Page anchor={anchor} className="frontCover" theme={theme} header={true} footer={false}>
             <div className="desc">
                 <div className="title">{title}</div>
                 <div className="data">{frontCoverText}</div>

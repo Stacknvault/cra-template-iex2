@@ -4,10 +4,10 @@ import './AgentDetail.scss';
 import { ffmap } from '../../lib/Context'
 import { css } from 'emotion';
 
-export default function AgentDetail({ theme }) {
+export default function AgentDetail({ theme, anchor }) {
     return (
-        <Page theme={theme} withMargin={true} title="IHR ANSPRECHPARTNER">
-            <div className="agentDetail">
+        <Page theme={theme} withMargin={true} title="IHR ANSPRECHPARTNER" header={false} footer={true}>
+            <div ref={anchor} className="agentDetail">
                 <div className="lhs">
                     <img src={ffmap`sender.image.url`} className={css`
                             max-width: 100%;

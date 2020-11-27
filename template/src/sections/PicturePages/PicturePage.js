@@ -4,11 +4,11 @@ import { css } from 'emotion'
 import { getBaseTheme } from '../../styles/IEXTheme'
 
 
-export default function PicturePage({ theme, photos, className }) {
+export default function PicturePage({ theme, photos, className, title }) {
     const mytheme = theme ? theme : getBaseTheme();
     // console.log('==>photos', photos)
     return (
-        <Page theme={theme} className="picturePage">
+        <Page withMargin={true} title={title} theme={theme} className="picturePage" header={false} footer={false}>
             <div className={`pictureFrame ${className}`}>
                 {photos.map(photoObj => {
                     return (
@@ -18,12 +18,12 @@ export default function PicturePage({ theme, photos, className }) {
                             //     backgroundImage: `url(${photoObj.uri})`
                             // }}
                             >
-                                <img width="100%" src={photoObj.uri}/>
+                                <img className="picImg" src={photoObj.uri}/>
                             </div>
                             {/* className="description" */}
-                            <div className={"description " + css`
+                            {photoObj.headline && <div className={"description " + css`
                                 background-color: ${mytheme.brand.colors.primary};
-                            `}>{photoObj.headline}</div>
+                            `}>{photoObj.headline}</div>}
                         </div>  
                     );
                 })}

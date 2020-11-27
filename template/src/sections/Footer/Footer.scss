@@ -31,4 +31,14 @@
             }
         }
     }
+    @media screen{
+        .hideOnScreen {
+            display: none;
+        }
+    }
+    .footerDiv {
+        @media print{
+            margin-top: 1mm
+        }
+    }
 }

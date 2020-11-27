@@ -8,7 +8,34 @@ body {
 
 h1 {
   color: $color5;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 36pt;
+  font-family: "Roboto", sans-serif;
+  font-size: 30pt;
   text-transform: uppercase;
+}
+.menu {
+  @media print {
+    display: none
+  }
+  position: fixed;
+  top: 20%;
+  left: 0%;
+  animation: moveDown 0.5s ease-in-out;
+}
+.menuItemText {
+  font-weight: normal;  
+  color: grey;
+  font-size: 11pt;
+}
+.menuItemTextHightlighted {
+  font-weight: bold;  
+  color: darkslateblue;
+  font-size: 12pt;
+}
+.menuItem {
+  margin-left: 5mm;
+  margin-top: 2mm;
+  font-weight: normal;  
+}
+.subMenu {
+  font-weight: bold;  
 }

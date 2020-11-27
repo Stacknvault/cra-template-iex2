@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import './Expose.scss';
 import { getBaseTheme } from './styles/IEXTheme'
 import { Stage, ffmap, ContextStore } from './lib/Context'
@@ -17,176 +17,11 @@ import Page from './sections/Page/Page';
 import OpenMap from './sections/OpenMap/OpenMap';
 import ReactDOM from 'react-dom';
 import MapPage from './sections/OpenMap/MapPage';
+import { Button, Link, MenuItem } from '@material-ui/core';
+import useSticky from './hooks/useSticky';
+import { requiredFields } from './config';
 
-// const estateTypes = {
-//   "01TERR": "Terrassenwohnung",
-//   "01ZO": "Sonstiger Wohnungstyp",
-//   "01ZFERIE": "Ferienwohnung",
-//   "01SOUT": "Souterrain",
-//   "01PENT": "Penthouse",
-//   "01HP": "Hochparterre",
-//   "01DACH": "Dachgeschosswohnung",
-//   "01LOFT": "Loftwohnung",
-//   "01ETAG": "Etagenwohnung",
-//   "01ZGALER": "Galerie",
-//   "01ZATTIK": "Attikawohnung",
-//   "01GERD": "Erdgeschosswohnung",
-//   "01ZAPART": "Apartment",
-//   "01ZROHD": "Rohdachboden",
-//   "01": "Wohnungen",
-//   "01MAIS": "Maisonettewohnung"
-// };
-// const energySources = {
-//   "WAE": "Wärmepumpe",
-//   "OEL": "Öl-Heizung",
-//   "GAS": "Gas-Heizung",
-//   "03": "Zentralheizung",
-//   "BLO": "Blockheizkraftwerk",
-//   "SOL": "Solar-Heizung",
-//   "ELE": "Elektro-Heizung",
-//   "02": "Ofenheizung",
-//   "HOL": "Holz-Pelletheizung",
-//   "FUS": "Fußbodenheizung",
-//   "FER": "Fernwärme",
-//   "NAC": "Nachtspeicherofen",
-//   "01": "Etagenheizung"
-// }
-// const energyIdentificationTypes = {
-//   "2": "Bedarfsausweis",
-//   "3": "Verbrauchsausweis"
-// }
-// const energyEfficienceClasses = {
-//   "01": "A+",
-//   "02": "A",
-//   "03": "B",
-//   "04": "C",
-//   "05": "D",
-//   "06": "E",
-//   "07": "F",
-//   "08": "G",
-//   "09": "H",
-// }
 
-const requiredFields = [
-  "livingarea",
-  "estatetype",
-  "subheadline",
-  // "addresses",
-  // "addresses",
-  // "addresses",!!!
-  "commissioninclvat",
-  "purchaseprice",
-  "pricesqm",
-  "rentsqf",
-  "annuallease",
-  "rent",
-  "rentalincomenominal",
-  "rentalincomeactual",
-  "service_charge",
-  "rentinclusiveofheating",
-  "securitydeposit",
-  "additionalrentcharges",
-  "monthly_oberheads",
-  "heatingcosts",
-  "additionalexpenses",
-  "infrastructurecosts",
-  "price_on_request",
-  "livingarea",
-  "plotarea",
-  "leasablearea",
-  "plotcoverratio",
-  "plotfront",
-  "cellararea",
-  "usablearea",
-  "gardenarea",
-  "officespace",
-  "commercialarea",
-  "asarea",
-  "minpartialarea",
-  "totalarea",
-  "otherarea",
-  "rooms",
-  "kitchen_existing",
-  "builtin_kitchen",
-  "furnished",
-  "guestToilet",
-  "roomsmodifiable",
-  "yearofconstruction",
-  "constructibleaccto",
-  "buildingplot",
-  "landusage",
-  "flooring",
-  "qualfitout",
-  "bathroomproperties",
-  "recommuse",
-  "floor",
-  "no_of_floors",
-  "fittings_stairs",
-  "parking",
-  "numgarages",
-  "carportnum",
-  "garagerent",
-  "carportrent",
-  "garagepurchaseprice",
-  "carportpurchaseprice",
-  "buildingpermit",
-  "let",
-  "monthlyrentincome",
-  "completiondate",
-  // "elevator",!!!
-  "elevator_general",
-  "balconyterrace",
-  "condition",
-  "barrierfree",
-  "monument",
-  "dpwiring",
-  "shutters",
-  "location",
-  "typeoflocation",
-  "fittings",
-  "commissionProspect",
-  "identifier",
-  "numhousingunits",
-  "numretailunits",
-  "numofunits",
-  "totalunits",
-  "AnnualNetColdRentActualResidential",
-  "AnnualNetColdRentActualCommercial",
-  "AnnualNetColdRentActualOthers",
-  "AnnualNetColdRentActualTotal",
-  "AnnualNetColdRentResidential",
-  "AnnualNetColdRentCommercial",
-  "AnnualNetColdRentOthers",
-  "AnnualNetColdRentTotal",
-  "vacancyUnitsResidential",
-  "vacancyUnitsCommercial",
-  "vacancyUnitsOthers",
-  "yield_actual",
-  "yield",
-  "xtimes_actual",
-  "xtimes",
-  "textEstate",
-  "energyIdentificationType",
-  "energyUsageValue",
-  "energyEfficienceClass",
-  "energy_certificate_availability",
-  "energIdentificationDate",
-  "energy_performance_certificate_valid_until",
-  "energyWithWarmWater",
-  "typeofheating",
-  "fuelenergy_type",
-  "yearofconstruction",
-  "lastModernization",
-  "lastRefurbishment",
-  "energyidentificationtype",
-  "energyusagevalue",
-  "energyusagevaluevoltage",
-  "energyusagevalueheat",
-  "energyefficienceclass",
-  "energidentificationdate",
-  "pass_valid_till",
-  "energywithwarmwater",
-];
 function Expose() {
   const iexContext = useContext(ContextStore);
   const schemaName = iexContext.iex.context.entity._metadata.schema;
@@ -195,6 +30,95 @@ function Expose() {
   // console.log('The schema is', schema);
   // console.log('iexContext', iexContext);
   const theme = getBaseTheme();
+
+  const { isSticky, element } = useSticky();
+
+  const menu = {
+    start: useRef(null),
+    agent: useRef(null),
+    pictures: useRef(null),
+    facts: useRef(null),
+    immo: useRef(null),
+    equipment: useRef(null),
+    thearea: useRef(null),
+    map: useRef(null),
+    constructability: useRef(null),
+    floorPlans: useRef(null),
+    textDevelopment: useRef(null),
+    textFree: useRef(null),
+    commissionInformation: useRef(null),
+  }
+  const [currentMenuItem, setCurrentMenuItem] = useState(menu.start)
+
+  const handleScroll = (event)=>{
+    var minPositive={item:null, pos:100000};
+    Object.keys(menu).map((key)=>{
+      if (menu[key].current){
+        // console.log(key, menu[key].current.getBoundingClientRect().y)
+        const rect=menu[key].current.getBoundingClientRect();
+        if (rect.y>=0 && rect.y<minPositive.pos){
+          minPositive={item: menu[key], pos: rect.y}
+        }
+      }
+    })
+    if (minPositive.item){
+      setCurrentMenuItem(minPositive.item);
+    }
+    let scrollTop = event.srcElement.body.scrollTop;
+    // console.log(scrollTop, window.scrollY);
+  }
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll);
+  },[]);
+
+
+  const menuItem=(item, title)=>(
+    <div className="menuItem">
+      <Link
+          component="button"
+          variant="body2"
+          
+          onClick={()=>{
+            setCurrentMenuItem(item);
+            let node = item.current;
+            console.log(node.getBoundingClientRect())
+            console.log(node);
+            if (node) {
+                node.scrollIntoView();
+            }
+          }}
+        >
+          <span className={item===currentMenuItem?"menuItemTextHightlighted":"menuItemText"}>{item===currentMenuItem?"> ":""} {title}</span>
+      </Link>
+    </div>
+  )
+
+  const renderMenu = ()=>(
+    <div className="menu">
+      {menuItem(menu.start, 'START')}
+      {menuItem(menu.facts, 'WICHTIGES')}
+      <div className="menuItem">
+        <div className="subMenu">TEXTE</div>
+        {ffmap`entity.textEstate` && menuItem(menu.immo, 'DIE IMMOBILIE')}
+        {ffmap`entity.textEnvironment` && menuItem(menu.equipment, 'AUSSTATTUNGSBESCHREIBUNG')}
+        {ffmap`entity.textLocation` && menuItem(menu.thearea, 'DIE LAGE')}
+        {ffmap`entity.textConstructability` && menuItem(menu.constructability, 'BEBAUBARKEIT')}
+        {ffmap`entity.textDevelopment` && menuItem(menu.textDevelopment, 'ERSCHLIESSUN')}
+        {ffmap`entity.textFree` && menuItem(menu.textDevelopment, 'FREITEXT')}
+        {ffmap`entity.commissionInformation` && menuItem(menu.commissionInformation, 'PROVISIONSHINWEIS')}
+      </div>
+      <div className="menuItem">
+        <div className="subMenu">GALLERIE</div>      
+        {menuItem(menu.pictures, 'OBJEKTBILDER')}
+        {menuItem(menu.map, 'MAP')}
+        {ffmap`entity.floorPlans` && menuItem(menu.floorPlans, 'GRUNDRISE')}
+      </div>
+      
+      {menuItem(menu.agent, 'IHR ANSPRECHPARTNER')}
+      
+    </div>
+  )
+
   return (
     <>
       <Stage level="0">
@@ -203,84 +127,59 @@ function Expose() {
         </ContractAgreement>
       </Stage>
       <Stage level="1">
-        <FrontCover theme={theme} title={ffmap`entity.headline`} imgObj={ffmap`entity.mainImage`}></FrontCover>
-        {/* <Page theme={theme} title={'Map'} withMargin={true}>
-          <MapSection className="section" marker={false} traffic={false} controls={false}/>
-        </Page> */}
-        <SmartFactSheet title="Wichtiges auf einen Blick" theme={theme}>
-          {requiredFields.filter(field=>ffmap`entity.${field}`).map((field, index)=>{
-            const name=`entity.${field}`
-            const fieldSpec=schema.properties[field];
-            var value=ffmap`${name}`;// false is returned as "false"
-            // console.log('and the winner is', value);
-            if (value && fieldSpec){
-              if (fieldSpec.type==='CHECKBOX'){
-                value=value==="false"?'Nein':'Ja';
-              }else if (fieldSpec.type==='LIST'){
-                // console.log('list value', fieldSpec)
-                const fn=Object.entries(fieldSpec.fields).filter(field=>field[1].value===value);
-                if (fn.length>0){
-                  value=fn[0][1].captions.de;
+        {renderMenu()}
+
+        <div ref={element}>
+          <FrontCover anchor={menu.start} theme={theme} title={ffmap`entity.headline`} imgObj={ffmap`entity.mainImage`}></FrontCover>
+          {/* <Page theme={theme} title={'Map'} withMargin={true}>
+            <MapSection className="section" marker={false} traffic={false} controls={false}/>
+          </Page> */}
+          <SmartFactSheet anchor={menu.facts} title="Wichtiges auf einen Blick" theme={theme}>
+            {requiredFields.filter(field=>ffmap`entity.${field}`).map((field, index)=>{
+              const name=`entity.${field}`
+              const fieldSpec=schema.properties[field];
+              var value=ffmap`${name}`;// false is returned as "false"
+              // console.log('and the winner is', value);
+              if (value && fieldSpec){
+                if (fieldSpec.type==='CHECKBOX'){
+                  value=value==="false"?'Nein':'Ja';
+                }else if (fieldSpec.type==='LIST'){
+                  // console.log('list value', fieldSpec)
+                  const fn=Object.entries(fieldSpec.fields).filter(field=>field[1].value===value);
+                  if (fn.length>0){
+                    value=fn[0][1].captions.de;
+                  }
+                }else if (fieldSpec.type==='DATE'){
+                  value=Moment(new Date(value*1000)).format('DD/MM/yyyy');
                 }
-              }else if (fieldSpec.type==='DATE'){
-                value=Moment(new Date(value*1000)).format('DD/MM/yyyy');
+                const label=fieldSpec.captions.de;
+                var unit=fieldSpec.unit||'';
+                if (unit==='€' || field==='price' || field==='rent'){//!!! improve this and use proper formatting from schema
+                  value=currency(value);
+                  unit=''// included already by formatter
+                }
+                return (<Fact key={`k${index}`} theme={theme} label={label} value={`${value} ${unit}`} />)
+              }else{
+                return(<></>)
               }
-              const label=fieldSpec.captions.de;
-              var unit=fieldSpec.unit||'';
-              if (unit==='€' || field==='price' || field==='rent'){//!!! improve this and use proper formatting from schema
-                value=currency(value);
-                unit=''// included already by formatter
-              }
-              return (<Fact key={`k${index}`} theme={theme} label={label} value={`${value} ${unit}`} />)
-            }else{
-              return(<></>)
-            }
-          })}
-          {/* <Fact theme={theme} label="Objekttyp" value={estateTypes[ffmap`entity.estatetype`]} />
-          <Fact theme={theme} label="Wohnfläche" value={`ca. ${ffmap`entity.livingarea`} m2`} />
-          <Fact theme={theme} label="Anzahl Zimmer" value={ffmap`entity.rooms`} />
-          <Fact theme={theme} label="Anzahl Balkone" value={ffmap`entity.balconies`} />
-          <Fact theme={theme} label="Terrasse" value={ffmap`entity.terraceavailable` ? 'Ja': 'Nein'} />
-          <Fact theme={theme} label="Anzahl Badezimmer" value={ffmap`entity.numberbathrooms`} />
-          <Fact theme={theme} label="Gäste-WC " value={ffmap`entity.numseptoilets` > 0 ? 'Ja': 'Nein'} />
-          
-          <Fact theme={theme} label="Objekt" value={ffmap`entity.identifier`} />
-          {!ffmap`entity.addresses..street` &&
-            <Fact theme={theme} label="Straße" value={ffmap`entity.street`} />
-          } 
-          {ffmap`entity.addresses..street` && 
-            <>
-            <Fact theme={theme} label="Straße" value={ffmap`entity.addresses..street`} />
-            <Fact theme={theme} label="PLZ" value={ffmap`entity.addresses..zipcode`} />
-            <Fact theme={theme} label="Ort" value={ffmap`entity.addresses..city`} />
-            <Fact theme={theme} label="Land" value={ffmap`entity.addresses..country`} />
-            </>
-          }
-          <Fact theme={theme} label="Endenergieausweistyp" value={energyIdentificationTypes[ffmap`entity.energyidentificationtype`]} />
-          <Fact theme={theme} label="Endenergiebedarf" value={`${ffmap`entity.energyusagevalue`} kWh/(m2*a)`} />
-          <Fact theme={theme} label="Endenergiefficienzklasse" value={energyEfficienceClasses[ffmap`entity.energyefficienceclass`]} />
-          <Fact theme={theme} label="wesentlicher Energieträger" value={energySources[ffmap`entity.fuelenergy_type`]} />
-          <Fact type="date" theme={theme} label="Energieausweis gültig bis" value={ffmap`entity.pass_valid_till`} />
-          <Fact theme={theme} label="Baujahr Immobilie" value={ffmap`entity.yearofconstruction`} />
-          <Fact type="currency" theme={theme} label="Kaufpreis" value={ffmap`entity.purchaseprice`} />
-          <Fact type="currency" theme={theme} label="Mietepreis" value={ffmap`entity.rent`} />
-          <Fact theme={theme} label="Käufer-Provision" value={ffmap`entity.commissionProspect`} /> */}
-        </SmartFactSheet>
-        {ffmap`entity.textEstate` && <TextPage title="Die Immobilie" theme={theme}>
-          {ffmd(ffmap`entity.textEstate`)}
-        </TextPage>}
-        <TextPage title="Ausstattungsbeschreibung" theme={theme}>
-          {ffmd(ffmap`entity.textEnvironment`)}
-        </TextPage>
-        {ffmap`entity.textLocation` && <TextPage title="Die Lage" theme={theme}>{ffmd(ffmap`entity.textLocation`)}</TextPage>}
-        <MapPage theme={theme} title="MAP"></MapPage>
-        {ffmap`entity.textConstructability` && <TextPage title="Bebaubarkeit" theme={theme}>{ffmd(ffmap`entity.textConstructability`)}</TextPage>}
-        {ffmap`entity.textDevelopment` && <TextPage title="Erschließung" theme={theme}>{ffmd(ffmap`entity.textDevelopment`)}</TextPage>}
-        {ffmap`entity.textFree` && <TextPage title="Freitext" theme={theme}>{ffmd(ffmap`entity.textFree`)}</TextPage>}
-        {ffmap`entity.commissionInformation` && <TextPage title="Provisionshinweis" theme={theme}>{ffmd(ffmap`entity.commissionInformation`)}</TextPage>}
-        <PicturePages theme={theme} imgObjs={ffmap`entity.longImage`}></PicturePages>
-        <FloorPlans theme={theme} imgObjs={ffmap`entity.groundplotImage`}></FloorPlans>
-        {ffmap`sender` && <AgentDetail theme={theme}></AgentDetail>}
+            })}
+          </SmartFactSheet>
+          {ffmap`entity.textEstate` && <TextPage anchor={menu.immo} title="Die Immobilie" theme={theme}>
+            {ffmd(ffmap`entity.textEstate`)}
+          </TextPage>}
+          <TextPage title="Ausstattungsbeschreibung" anchor={menu.equipment} theme={theme}>
+            {ffmd(ffmap`entity.textEnvironment`)}
+          </TextPage>
+          {ffmap`entity.textLocation` && <TextPage anchor={menu.thearea} title="Die Lage" theme={theme}>{ffmd(ffmap`entity.textLocation`)}</TextPage>}
+          {ffmap`entity.textConstructability` && <TextPage anchor={menu.constructability} title="Bebaubarkeit" theme={theme}>{ffmd(ffmap`entity.textConstructability`)}</TextPage>}
+          {ffmap`entity.textDevelopment` && <TextPage anchor={menu.textDevelopment} title="Erschließung" theme={theme}>{ffmd(ffmap`entity.textDevelopment`)}</TextPage>}
+          {ffmap`entity.textFree` && <TextPage anchor={menu.textFree} title="Freitext" theme={theme}>{ffmd(ffmap`entity.textFree`)}</TextPage>}
+          {ffmap`entity.commissionInformation` && <TextPage anchor={menu.commissionInformation} title="Provisionshinweis" theme={theme}>{ffmd(ffmap`entity.commissionInformation`)}</TextPage>}
+          <PicturePages title={"OBJEKTBILDER"} anchor={menu.pictures} theme={theme} imgObjs={ffmap`entity.longImage`}></PicturePages>
+          <MapPage anchor={menu.map} theme={theme} title="MAP"></MapPage>
+          <FloorPlans anchor={menu.floorPlans} theme={theme} imgObjs={ffmap`entity.groundplotImage`}></FloorPlans>
+          {ffmap`sender` && <AgentDetail anchor={menu.agent} theme={theme}></AgentDetail>}
+        </div>
       </Stage>
     </>
   );

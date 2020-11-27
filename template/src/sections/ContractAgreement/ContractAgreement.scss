@@ -15,8 +15,8 @@
     margin-right: auto;
     position: relative;
     .agreements {
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(0, 0, 0, 0.6);
+        background-color: rgba(255, 255, 255, 1);
+        // border: 1px solid rgba(0, 0, 0, 0.6);
         // position: absolute;
         top: 35mm;
         // bottom: 10mm;
@@ -39,6 +39,11 @@
             background-color: beige;
         }
         .Tab {
+            .greenButton{
+                background-color: '#05B9AE';
+                color: 'white'
+            }
+            
             // position: absolute;
             // top: 50px;
             // left: 0px;
@@ -48,6 +53,16 @@
             padding: 5mm;
             max-height: 35vh;
             margin-top: auto;
+            button:disabled,
+            button[disabled]{
+                border: 1px solid #999999;
+                background-color: #cccccc;
+                color: #666666;
+            }
+        }
+        .greenChk {
+            color: #05B9AE
         }
     }
 }
+
