@@ -18,6 +18,7 @@ export default function AgentDetail({ theme, anchor }) {
                     {ffmap`sender.position` && <div>Position : {ffmap`sender.position`}</div>}
                     {ffmap`sender.phone` && <div>Phone : {ffmap`sender.phone`}</div>}
                     {ffmap`sender.mobile` && <div>Mobile : {ffmap`sender.mobile`}</div>}
+                    {ffmap`sender.emails` && <div>Email : <a href={`mailto:${ffmap`sender.emails`}`}>{ffmap`sender.emails`}</a></div>}
 
                     <div>
                         {ffmap`company.companyStreet`}&nbsp;

@@ -13,13 +13,11 @@ import Fact from './sections/FactSheet/Fact';
 import ContractAgreement from './sections/ContractAgreement/ContractAgreement';
 import SmartFactSheet from './sections/FactSheet/SmartFactSheet';
 import Moment from 'moment';
-import Page from './sections/Page/Page';
-import OpenMap from './sections/OpenMap/OpenMap';
-import ReactDOM from 'react-dom';
 import MapPage from './sections/OpenMap/MapPage';
-import { Button, Link, MenuItem } from '@material-ui/core';
+import {Button, Link } from '@material-ui/core';
 import useSticky from './hooks/useSticky';
 import { requiredFields } from './config';
+import { Print } from '@material-ui/icons';
 
 
 function Expose() {
@@ -31,7 +29,10 @@ function Expose() {
   // console.log('iexContext', iexContext);
   const theme = getBaseTheme();
 
-  const { isSticky, element } = useSticky();
+  const { element } = useSticky();
+
+  // const { printElement } = useSticky();
+  
 
   const menu = {
     start: useRef(null),
@@ -108,7 +109,7 @@ function Expose() {
         {ffmap`entity.commissionInformation` && menuItem(menu.commissionInformation, 'PROVISIONSHINWEIS')}
       </div>
       <div className="menuItem">
-        <div className="subMenu">GALLERIE</div>      
+        <div className="subMenu">GALERIE</div>      
         {menuItem(menu.pictures, 'OBJEKTBILDER')}
         {menuItem(menu.map, 'MAP')}
         {ffmap`entity.floorPlans` && menuItem(menu.floorPlans, 'GRUNDRISE')}
@@ -116,6 +117,19 @@ function Expose() {
       
       {menuItem(menu.agent, 'IHR ANSPRECHPARTNER')}
       
+    </div>
+  )
+
+  const renderPrintButton = ()=>(
+    <div className="printButtonHolder">
+      <Button onClick={window.print} className="printButton">
+        <div>
+          <Print/>
+        </div>
+        <div>
+          &nbsp;Exposé drucken
+        </div>
+      </Button>      
     </div>
   )
 
@@ -128,6 +142,7 @@ function Expose() {
       </Stage>
       <Stage level="1">
         {renderMenu()}
+        {renderPrintButton()}
 
         <div ref={element}>
           <FrontCover anchor={menu.start} theme={theme} title={ffmap`entity.headline`} imgObj={ffmap`entity.mainImage`}></FrontCover>

@@ -9,9 +9,10 @@ import { ContextStore } from '../..//lib/Context'
 
 import { ffmap } from '../../lib/Context'
 import { Button, CircularProgress } from '@material-ui/core';
+import { ArrowBack } from '@material-ui/icons';
 
 
-export default function TabPanel({ children, submitContractConsent, contract, value, index, ...other }) {
+export default function TabPanel({ children, submitContractConsent, goBack, contract, value, index, totalLength, ...other }) {
     const initialState = contract.legislationCheckboxes.reduce((acc, cb) => {
         acc[cb.value] = false;
         return acc;
@@ -29,7 +30,9 @@ export default function TabPanel({ children, submitContractConsent, contract, va
 
     const submitConsent = () => {
         if(!error) {
-            setLoading(true);
+            if (index===totalLength-1){
+                setLoading(true);
+            }
             submitContractConsent(contract);
         }
     }
@@ -38,13 +41,14 @@ export default function TabPanel({ children, submitContractConsent, contract, va
     const error = contract.legislationCheckboxes.filter(cb => {
         return !cb.required || state[cb.value];
     }).length !== contract.legislationCheckboxes.length;
-
     return (
         <>
         {value === index && (
         <>
         <div className='Text'>
-            <ReactMustache template={contract.legislationTextContent} data={ffmap`company`} />
+            <div className='InnerText'>
+                <ReactMustache template={contract.legislationTextContent} data={{company: ffmap`company`}} />
+            </div>
         </div>
         <div className='Tab' hidden={value !== index} {...other}>
                 <FormControl error={error} required={true} >
@@ -55,15 +59,24 @@ export default function TabPanel({ children, submitContractConsent, contract, va
                                 <FormControlLabel
                                     key={cb.value}
                                     control={<Checkbox className="greenChk" disabled={loading} checked={state[cb.value]} name={cb.value} onChange={e=>handleChange(e, contract, cb)} />}
-                                    label={<ReactMustache template={cb.label + (cb.required?' (*)':'')} data={{...ffmap`company`, cancellationUrl: 'https://s3.eu-central-1.amazonaws.com/cloudios.development.company-service/legislationtexts/b/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/revocation_terms/1600244681999.html'}} />} />
+                                    label={<div className='checkLabel'><ReactMustache template={cb.label + (cb.required?' (*)':'')} data={{company: ffmap`company`, cancellationUrl: 'https://s3.eu-central-1.amazonaws.com/cloudios.development.company-service/legislationtexts/b/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/revocation_terms/1600244681999.html'}} /></div>} />
                             );
                         })}
                     </FormGroup>
                     <FormHelperText>Alle mit (*) markierten Kontrollkästchen sind obligatorisch.</FormHelperText>
-                    <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} style={error?{}:{backgroundColor: '#05B9AE', color: 'white'}}>
-                    {loading && <CircularProgress size={14} />}
-                    {!loading && 'Submit Consent'}
-                    </Button>
+                    <div className='consentButtonWrapper'>
+                        <div></div>
+                        <div>
+                            {index>0 && !loading && <Button className='backButton' onClick={goBack} size="large" style={error?{}:{color: 'rgb(109, 131, 145)'}}>
+                                <ArrowBack/>Back
+                            </Button>}
+                            <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} style={error?{}:{backgroundColor: '#05B9AE', color: 'white'}}>
+                            {loading && <CircularProgress size={14} />}
+                            {!loading && index<totalLength-1 && 'Next'}
+                            {!loading && index==totalLength-1 && 'Finish'}
+                            </Button>
+                        </div>
+                    </div>
                 </FormControl>
         </div>
         </>

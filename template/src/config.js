@@ -19,7 +19,6 @@ export const requiredFields = [
     "additionalexpenses",
     "infrastructurecosts",
     "price_on_request",
-    "livingarea",
     "plotarea",
     "leasablearea",
     "plotcoverratio",

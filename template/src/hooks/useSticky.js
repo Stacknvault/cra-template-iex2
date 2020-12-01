@@ -5,6 +5,9 @@ function useSticky () {
   const element = useRef(null)
 
   const handleScroll = () => {
+    if (!element || !element.current){
+      return;
+    }
     window.scrollY > element.current.getBoundingClientRect().bottom
     ? setSticky(true)
     : setSticky(false);

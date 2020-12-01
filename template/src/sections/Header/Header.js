@@ -7,16 +7,12 @@ import { ffmap } from '../../lib/Context'
 export default function Header({theme, className}) {
     const mytheme = theme ? theme : getBaseTheme();
     return (
-        <div className={`logo header ${className}`}>
-            {ffmap`company.logo.url` &&<div className={"shield "+css`
-                 background-color: ${mytheme.brand.colors.primary};
-                 color: #808080;
-            `}><img src={ffmap`company.logo.url`} className={css`
+        <div className={`header ${className}`}>
+            <div className="text1">{ffmap`company.companyName`}</div>
+            {ffmap`company.logo.url` &&<div className={"shield"}><img src={ffmap`company.logo.url`} className={css`
             max-width: 100%;
             max-height: 80%;
         `} /></div>}
-            <div className="text1">{ffmap`company.companyName`}</div>
-            <div className="text2">Immobilien</div>
         </div>
     );
 }

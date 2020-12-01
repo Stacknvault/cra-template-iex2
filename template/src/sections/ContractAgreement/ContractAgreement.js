@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import { css } from 'emotion';
 import TabPanel from './TabPanel';
 import {ContextStore, ffmap} from '../../lib/Context'
+import { Check, CheckCircle, CheckCircleOutline, CheckCircleOutlineOutlined } from '@material-ui/icons';
 
 
 
@@ -35,6 +36,9 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
         }
         setAcceptedTabCount(acceptedTabCount + 1);
     }
+    const goBack = ()=>{
+        setSelectedTab(selectedTab - 1)
+    }
     if (filteredContracts.length>0){
         return (
             <div className="fullpage" 
@@ -44,18 +48,27 @@ export default function ContractAgreement({ theme, contracts, imgObj, children }
             >
                 <img style={{position: 'absolute', left: 0, top: 0}} width="100%" src={imgObj.uri}/>
                 <div className="ContractAgreement">
-                    <Header theme={theme} className={css`
-                        width: 100mm;
-                    `} />
-                    <div className='agreements'>
-                        <Tabs className='MuiTabs-root selector' value={selectedTab} onChange={(event, newValue) => { setSelectedTab(newValue) }}>
-                            {filteredContracts.map((contract, index) => {
-                                return (
-                                    <Tab key={`tabSelector_${contract.id}`} disabled={acceptedTabCount < index || submitState[contract.technicalName]} label={contract.legislationTextName}/>
-                                );
-                            })}
-                        </Tabs>
-                        {filteredContracts.map((contract, idx) => <TabPanel theme={theme} submitContractConsent={submitContractConsent} key={`tabPannel_${contract.id}`} value={selectedTab} index={idx} contract={contract} />)}
+                    <div className="Wrapper">
+                        <Header theme={theme} />
+                        <div className='agreements'>
+                            <Tabs className='selector' value={selectedTab} onChange={(event, newValue) => { setSelectedTab(newValue) }}>
+                                {filteredContracts.map((contract, index) => {
+                                    return (
+                                        <Tab key={`tabSelector_${contract.id}`} disabled={selectedTab < index} label={
+                                            <div style={{width: '100%'}}>
+                                                <div className='checkCircleWrapper'>
+                                                    {/* <div className={index===0?'lineDivTransparent':'lineDiv'}>&nbsp;</div> */}
+                                                    {selectedTab > index && <CheckCircle className='checkCircle'/>}{selectedTab <= index && <CheckCircleOutline className='checkCircleNext'/>}
+                                                    {/* <div className='lineDiv'>&nbsp;</div> */}
+                                                </div>
+                                                <div>{contract.legislationTextName}</div>
+                                            </div>
+                                        }/>
+                                    );
+                                })}
+                            </Tabs>
+                            {filteredContracts.map((contract, idx) => <TabPanel theme={theme} submitContractConsent={submitContractConsent} goBack={goBack} key={`tabPannel_${contract.id}`} value={selectedTab} index={idx} totalLength={filteredContracts.length} contract={contract} />)}
+                        </div>
                     </div>
                 </div>
             </div>
