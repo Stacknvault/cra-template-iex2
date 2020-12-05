@@ -1,6 +1,6 @@
 {
   "name": "@stacknvault/cra-template-iex2-app",
-  "version": "1.2.50",
+  "version": "1.2.51",
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
@@ -14,6 +14,9 @@
     "react-mustache": "^0.1.5",
     "react-scripts": "^3.4.1",
     "moment": "^2.27.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5"
   },"keywords": [
     "react",
     "create-react-app",
