@@ -21,6 +21,9 @@
       "react-mustache": "^0.1.5",
       "react-scripts": "^3.4.1"
       },
+      "devDependencies": {
+        "@babel/core": "^7.5.5"
+      },
     "scripts": {
       "expose": "node node_modules/@stacknvault/iex2-core/scripts/expose.js"
     }

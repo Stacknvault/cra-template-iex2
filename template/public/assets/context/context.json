@@ -406,7 +406,7 @@
                {
                   "online" : true,
                   "uri" : "https://s3.eu-central-1.amazonaws.com/cloudios.development.image/fb/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/a2/0e291f7f-b53b-475e-9efc-157f64279ca2/bc/976d8e56-16cc-4504-a1fd-17595aeb0abc.jpg",
-                  "headline" : "",
+                  "headline" : "",  
                   "position" : 1,
                   "description" : ""
                },
@@ -55070,5 +55070,5 @@
          }
       }
    },
-   "currentStage" : "1"
+   "currentStage" : "0"
 }
