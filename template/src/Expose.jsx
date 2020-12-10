@@ -104,8 +104,8 @@ function Expose() {
         {ffmap`entity.textEnvironment` && menuItem(menu.equipment, 'AUSSTATTUNGSBESCHREIBUNG')}
         {ffmap`entity.textLocation` && menuItem(menu.thearea, 'DIE LAGE')}
         {ffmap`entity.textConstructability` && menuItem(menu.constructability, 'BEBAUBARKEIT')}
-        {ffmap`entity.textDevelopment` && menuItem(menu.textDevelopment, 'ERSCHLIESSUN')}
-        {ffmap`entity.textFree` && menuItem(menu.textDevelopment, 'FREITEXT')}
+        {ffmap`entity.textDevelopment` && menuItem(menu.textDevelopment, 'ERSCHLIESSUNG')}
+        {ffmap`entity.textFree` && menuItem(menu.textFree, 'FREITEXT')}
         {ffmap`entity.commissionInformation` && menuItem(menu.commissionInformation, 'PROVISIONSHINWEIS')}
       </div>
       <div className="menuItem">

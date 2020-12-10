@@ -14,7 +14,7 @@ import { Check, CheckCircle, CheckCircleOutline, CheckCircleOutlineOutlined } fr
 export default function ContractAgreement({ theme, contracts, imgObj, children }) {
     const [selectedTab, setSelectedTab] = useState(0);
     const [acceptedTabCount, setAcceptedTabCount] = useState(0);
-    const filteredContracts = (contracts && contracts.filter(contract=>contract.legislationTextName!=="Provisionshinweis" || ffmap`entity.commissionProspect`)) || [];
+    const filteredContracts = (contracts && contracts.filter(contract=>contract.legislationTextName!=="Provisionshinweis" || ffmap`entity.commissionProspect`)) || []; // filter Provisionshinweis if there is no comission
     const initialState = filteredContracts.reduce((acc, c) => {
         acc[c.technicalName] = false;
         return acc;

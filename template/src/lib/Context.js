@@ -55,10 +55,15 @@ const Context = ({ children }) => {
 
               var message = `<p>${dateStr} Uhr: Der Besucher hat das interaktive Exposé besucht</p>
 
-              <p>14.Sep. 09:57 Uhr: Es wurden mehr Informationen angefordert</p>`
+              <p>14.Sep. 09:57 Uhr: Es wurden mehr Informationen angefordert</p>`;
+
+              var acceptedContracts=[]
 
               Object.keys(contractAcceptances).length && iex.context.company.legislationTexts.map(item=>{
-                item.legislationCheckboxes.filter(i=>contractAcceptances[`${item.id}-${i.value}`]).map(res=>{
+                var legislationCheckboxes=item.legislationCheckboxes.filter(i=>contractAcceptances[`${item.id}-${i.value}`]);
+                var contract={...item, legislationCheckboxes}
+                acceptedContracts=[...acceptedContracts, contract];
+                legislationCheckboxes.map(res=>{
                     message+=`<p>✓${res.label}<\p>
                     `
                 })
@@ -69,7 +74,7 @@ const Context = ({ children }) => {
             fetch(`https://iex2-expose-lambda.${stage}.sf.flowfact-${devProd}.cloud/public/expose/${exposeId}/track?async`, 
             { 
                 headers: {'content-type': 'application/json'}, 
-                body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: message, stage: toStage}),
+                body: JSON.stringify({subject: 'Neuer Besucher im Interaktiven Exposé', message: message, stage: toStage, acceptedContracts}),
                 method: 'post'
             })
             .then(jsonify)

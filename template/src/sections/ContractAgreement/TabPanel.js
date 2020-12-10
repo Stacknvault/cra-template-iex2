@@ -68,12 +68,12 @@ export default function TabPanel({ children, submitContractConsent, goBack, cont
                         <div></div>
                         <div>
                             {index>0 && !loading && <Button className='backButton' onClick={goBack} size="large" style={error?{}:{color: 'rgb(109, 131, 145)'}}>
-                                <ArrowBack/>Back
+                                <ArrowBack/>Zurück
                             </Button>}
                             <Button variant="outlined" onClick={submitConsent} size="large" disabled={error} style={error?{}:{backgroundColor: '#05B9AE', color: 'white'}}>
                             {loading && <CircularProgress size={14} />}
-                            {!loading && index<totalLength-1 && 'Next'}
-                            {!loading && index==totalLength-1 && 'Finish'}
+                            {!loading && index<totalLength-1 && 'Weiter'}
+                            {!loading && index==totalLength-1 && 'Exposé anzeigen'}
                             </Button>
                         </div>
                     </div>
