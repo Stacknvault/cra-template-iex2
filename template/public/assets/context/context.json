@@ -406,7 +406,7 @@
                {
                   "online" : true,
                   "uri" : "https://s3.eu-central-1.amazonaws.com/cloudios.development.image/fb/498f3bab-0fa8-4e64-94f4-3ce897f9c7fb/a2/0e291f7f-b53b-475e-9efc-157f64279ca2/bc/976d8e56-16cc-4504-a1fd-17595aeb0abc.jpg",
-                  "headline" : "",  
+                  "headline" : "",
                   "position" : 1,
                   "description" : ""
                },
@@ -54764,6 +54764,26 @@
                "id" : "2c37dc17-b787-4acb-9d71-01fb6dd1a387"
             },
             {
+               "technicalName" : "revocation_terms",
+               "legislationTextContent" : "<h1>Nutzungsbedingungen</h1><h2>Widerrufsrecht</h2><p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.</p><p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns ({{company.companyName}}, {{company.companyStreet}}, {{company.companyPostcode}} {{company.companyCity}}, Telefon: {{company.companyPhoneInfo}}, Fax: {{company.companyFax}}, {{company.companyMailInfo}}) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief, Telefax oder E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte <a href='https://download.flowfact.me/Muster-widerrufsformular.pdf' target='_blank' rel='noopener'>Muster-Widerrufsformular</a> verwenden, das jedoch nicht vorgeschrieben ist.</p><p>Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p><h2>Folgen des Widerrufs</h2><p>Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass  Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p><p>Haben Sie verlangt, dass die Dienstleistung während der Widerrufsfrist beginnen soll, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrages unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.</p><h2>Hinweis zum vorzeitigen Erlöschen des Widerrufsrechts</h2><p>Ihr Widerrufsrecht erlischt bei einem Vertrag zur Erbringung von Dienstleistungen vorzeitig, wenn wir die Dienstleistung vollständig erbracht haben und mit der Ausführung der Dienstleistung erst begonnen haben, nachdem Sie dazu Ihre ausdrückliche Zustimmung gegeben haben und gleichzeitig Ihre Kenntnis davon bestätigt haben, dass Sie Ihr Widerrufsrecht bei vollständiger Vertragserfüllung durch uns verlieren.</p>",
+               "legislationTextName" : "Nutzungsbedingungen",
+               "legislationCheckboxes" : [
+                  {
+                     "defaultChecked" : false,
+                     "required" : true,
+                     "value" : "cancellation",
+                     "label" : "Ich habe die <a href='{{cancellationUrl}}' target='_blank' rel='noopener'>Widerrufsbelehrung</a> gelesen, verstanden und bin damit einverstanden."
+                  },
+                  {
+                     "required" : true,
+                     "value" : "start_before_cancellation",
+                     "defaultChecked" : false,
+                     "label" : "Ich verlange und bin ausdrücklich damit einverstanden, dass Sie bereits vor dem Ende der Widerrufsfrist mit der Ausführung der Dienstleistung, die Gegenstand des zu schließenden Vertrags ist, beginnen. Ferner ist mir bekannt, dass ich bereits mit vollständiger Vertragserfüllung durch Sie das mir gesetzlich zustehende Widerrufsrecht verliere."
+                  }
+               ],
+               "id" : "2c37dc17-b787-4acb-9d71-01fb6dd1a387"
+            },
+            {
                "technicalName" : "commission_hint",
                "id" : "5bf786af-d0bf-4adb-b855-06b28423ffe9",
                "legislationCheckboxes" : [
@@ -54816,19 +54836,19 @@
          "domain" : "gmail.com",
          "companyUrlInstagram" : null,
          "companyBic" : null,
-         "companyStreet" : null,
+         "companyStreet" : "Cooler Strasse",
          "origin" : null,
          "companyBank" : null,
-         "companyMailInfo" : null,
+         "companyMailInfo" : "ourmail@ourcompany.com",
          "purposeOfDataProcessing" : "sadfasdf",
-         "companyCity" : null,
+         "companyCity" : "Cooland",
          "companyUstId" : null,
-         "companyName" : "Firmenname hier einfügen",
+         "companyName" : "KoolImmo GMBH",
          "entitlementInfo" : null,
          "companyUrlGoogle" : null,
          "companyIban" : null,
          "ownerClass" : "CUSTOMER",
-         "companyFax" : null,
+         "companyFax" : "1234",
          "companyUrlFacebook" : null,
          "timestamp" : null,
          "tax" : 16,
@@ -54836,10 +54856,10 @@
          "terms" : null,
          "id" : "498f3bab-0fa8-4e64-94f4-3ce897f9c7fb",
          "companyUrlPrivacy" : "http://www.wurst.de",
-         "companyPhoneInfo" : null,
+         "companyPhoneInfo" : "5678",
          "creatorId" : "d286e5d0-9ba2-46aa-93f2-c7f4ce9e33e2",
          "companyHrbPlace" : null,
-         "companyPostcode" : null
+         "companyPostcode" : "44556"
       },
       "contact" : {
          "_refs" : [
