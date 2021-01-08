@@ -136,9 +136,10 @@ function Expose() {
   return (
     <>
       <Stage level="0">
-        <ContractAgreement theme={theme} contracts={ffmap`company.legislationTexts`} imgObj={ffmap`entity.mainImage`}>
-          {ffmap`company.companyStreet`}
-        </ContractAgreement>
+        <ContractAgreement
+          theme={theme}
+          contracts={ffmap`company.legislationTexts`}
+          imgObj={ffmap`entity.mainImage`}/>
       </Stage>
       <Stage level="1">
         {renderMenu()}

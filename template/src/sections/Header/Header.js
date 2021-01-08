@@ -9,10 +9,7 @@ export default function Header({theme, className}) {
     return (
         <div className={`header ${className}`}>
             <div className="text1">{ffmap`company.companyName`}</div>
-            {ffmap`company.logo.url` &&<div className={"shield"}><img src={ffmap`company.logo.url`} className={css`
-            max-width: 100%;
-            max-height: 80%;
-        `} /></div>}
+            {ffmap`company.logo.url` &&<div className={"shield"}><img src={ffmap`company.logo.url`} /></div>}
         </div>
     );
 }

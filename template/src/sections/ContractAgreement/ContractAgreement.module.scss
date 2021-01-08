@@ -1,0 +1,56 @@
+
+.fullPage {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-print-color-adjust: exact;
+}
+
+.contentWrap {
+  position: relative;
+  overflow: hidden;
+  width: 794px;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 6px;
+  background: rgb(255, 255, 255);
+
+  .tabsWrap {
+    padding: 20px 40px 0 40px;
+  }
+
+  div {
+    text-transform: none !important;
+  }
+
+  span {
+    background-color: transparent;
+  }
+
+  .checkCircleContent {
+    .checkCircle {
+      font-size: 40px;
+    }
+
+    .checkCircleNext {
+      font-size: 40px;
+      color: rgb(192, 210, 221);
+    }
+  }
+
+  .circleHelpText {
+    margin: 0;
+    font-weight: 400;
+  }
+}
+
+.tabPanelWrap {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 40px 0 40px;
+}
+

@@ -1,0 +1,48 @@
+.contractTextWrap {
+  font-size: 14px;
+  border-radius: 6px;
+  background: rgb(231, 240, 245);
+}
+
+.content {
+  overflow-y: auto;
+  max-height: 35vh;
+  margin: 20px 0;
+  padding: 20px;
+  background: rgb(231, 240, 245);
+
+  p {
+    font-weight: 300;
+    line-height: 1.4;
+  }
+}
+
+.tab {
+  button {
+    font-weight: 400;
+    padding-right: 40px;
+    padding-left: 40px;
+    border: none;
+  }
+}
+
+.consentButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.backButton {
+  color: rgb(109, 131, 145);
+  background-color: transparent;
+}
+
+.checkLabel {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+

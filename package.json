@@ -1,6 +1,6 @@
 {
   "name": "@stacknvault/cra-template-iex2-app",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
